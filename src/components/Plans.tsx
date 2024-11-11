@@ -4,7 +4,7 @@ import PlansCarousel from "./PlansCarousel";
 
 const Plans = () => {
   return (
-    <section className=" bg-black w-full flex flex-col items-center justify-start px-4 md:px-10 lg:px-20 gap-8 max-w-[1200px] mx-auto animate-fade-up">
+    <section className=" bg-black w-full flex flex-col items-center justify-start px-4 md:px-10 lg:px-20 gap-8 max-w-[1200px] mx-auto">
       <div className="h-[40px] w-full flex justify-center items-center px-4 md:px-10 lg:px-20 max-w-[1350px] mx-auto">
         <div className="divider"></div>
       </div>

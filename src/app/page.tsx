@@ -1,4 +1,5 @@
 import AdvicePage from "@/components/AdvicePage";
+import Certifications from "@/components/Certifications";
 import DividerReady from "@/components/DividerReady";
 import Experience from "@/components/Experience";
 import FAQ from "@/components/FAQ";
@@ -12,10 +13,11 @@ export default function Home() {
       <Principal />
       <Plans />
       <AdvicePage />
+      <ParagraphContainer />
       <Experience />
       <FAQ />
-      <ParagraphContainer />
       <DividerReady />
+      <Certifications />
     </>
   );
 }
