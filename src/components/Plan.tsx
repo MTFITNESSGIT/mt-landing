@@ -10,7 +10,7 @@ const Plan: React.FC<TPlan> = ({
   category,
   price,
 }: TPlan) => {
-  const backgroundClasses = {
+  const backgroundClasses: Record<number, string> = {
     1: "bg-plan-1",
     2: "bg-plan-2",
     3: "bg-plan-3",

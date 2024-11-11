@@ -14,6 +14,7 @@ const PlansCarousel = () => {
   return (
     <>
       <Carousel
+        className="w-full"
         orientation="horizontal"
         plugins={[
           Autoplay({
@@ -21,11 +22,11 @@ const PlansCarousel = () => {
           }),
         ]}
       >
-        <CarouselContent className="w-full max-w-[340px] sm:max-w-[500px] md:max-w-full">
+        <CarouselContent className="w-full max-w-[350px] sm:max-w-[500px] md:max-w-full lg:max-w-[1000px]">
           {plans.map((plan, i) => {
             return (
               <CarouselItem
-                className="basis-full md:basis-1/2 lg:basis-1/3 mx-[2px]"
+                className="basis-full md:basis-1/2 lg:basis-1/3"
                 key={i}
               >
                 <Plan

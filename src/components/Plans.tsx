@@ -24,10 +24,7 @@ const Plans = () => {
         </div>
       </div>
 
-      <div
-        id="planes"
-        className={`flex w-full flex-col lg:flex-row justify-center items-center gap-4x max-w-[1200px] mx-auto`}
-      >
+      <div id="planes">
         <PlansCarousel />
       </div>
       <div className="h-[40px] w-full flex justify-center items-center px-4 md:px-10 lg:px-20 max-w-[1350px] mx-auto">
