@@ -24,6 +24,10 @@ const CheckoutClient: React.FC = () => {
     }
   };
 
+  if (!selectedPlan) {
+    return <p>Loading plan details...</p>; // Fallback content while waiting for selectedPlan
+  }
+
   return (
     <section className="bg-black w-full flex flex-col items-center justify-center gap-5 md:gap-0 md:justify-between px-4 md:px-10 lg:px-20 max-w-[1350px] mx-auto">
       <div className="p-6 w-full bg-white rounded-2xl flex flex-col items-center justify-center gap-10">
@@ -49,9 +53,7 @@ const CheckoutClient: React.FC = () => {
                     key={i}
                   >
                     {value.approved && <p className="text-lg">✅</p>}
-                    <p className="text-base" key={i}>
-                      {value.text}
-                    </p>
+                    <p className="text-base">{value.text}</p>
                   </div>
                 ))}
             </div>
@@ -68,9 +70,7 @@ const CheckoutClient: React.FC = () => {
                     ) : (
                       <p className="text-lg">❌</p>
                     )}
-                    <p className="text-base" key={i}>
-                      {include.text}
-                    </p>
+                    <p className="text-base">{include.text}</p>
                   </div>
                 ))}
             </div>
