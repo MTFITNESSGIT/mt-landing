@@ -2,7 +2,7 @@ import { ref, listAll, getDownloadURL } from "firebase/storage";
 import JSZip from "jszip";
 import { storage } from "../utils/firebase";
 import Button from "./Button";
-import FileSaver, { saveAs } from "file-saver";
+import { saveAs } from "file-saver";
 import { useState } from "react";
 import axios from "axios";
 import { IDownloadFilesButtonProps } from "@/types";
