@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense } from "react";
+import React from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import { handleCheckout } from "@/app/checkout/action";
