@@ -21,7 +21,7 @@ export const MercadoPagoLink = async (plan: TPlan) => {
       },
       auto_return: "approved",
       back_urls: {
-        success: `http://localhost:3000/thank-you?type=${plan.type}&category=${plan.category}`,
+        success: `https://www.tomymedina.com/thank-you?type=${plan.type}&category=${plan.category}`,
       },
     },
   });
