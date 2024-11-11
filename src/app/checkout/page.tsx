@@ -1,4 +1,3 @@
-// app/checkout/page.tsx
 import CheckoutClient from "@/components/CheckoutClient";
 import { Skeleton } from "@/components/ui/skeleton";
 import React, { Suspense } from "react";

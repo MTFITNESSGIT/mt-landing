@@ -38,7 +38,7 @@ const ThankYou = () => {
         setDownload(data.download); // Set the descargado value from response
       } catch (error) {
         console.error("Failed to fetch payment info", error);
-        router.replace("/404");
+        // router.replace("/404");
       } finally {
         setLoading(false);
       }
