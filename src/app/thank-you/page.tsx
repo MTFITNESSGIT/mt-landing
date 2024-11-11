@@ -17,7 +17,7 @@ const ThankYou = () => {
   const paymentId = searchParams.get("payment_id");
 
   const [loading, setLoading] = useState(true);
-  const [download, setDownload] = useState<number | null>(null); // Track download count
+  const [download, setDownload] = useState<number>(0); // Track download count
   const [progress, setProgress] = useState(0); // Track download progress
 
   const capitalizeType = capitalizeFirstLetter(type as string);
@@ -142,7 +142,7 @@ const ThankYou = () => {
                       <DownloadFilesButton
                         pathFile={DownloadData}
                         download={download}
-                        paymentId={paymentId}
+                        paymentId={paymentId as string}
                         onProgress={setProgress} // Set progress update handler
                       />
                     </div>
