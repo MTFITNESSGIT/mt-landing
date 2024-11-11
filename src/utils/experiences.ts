@@ -1,0 +1,16 @@
+export const experiences = [
+  "/imgs/experiences/Experience1.webp",
+  "/imgs/experiences/Experience2.webp",
+  "/imgs/experiences/Experience3.webp",
+  "/imgs/experiences/Experience4.webp",
+  "/imgs/experiences/Experience5.webp",
+  "/imgs/experiences/Experience6.webp",
+  "/imgs/experiences/Experience7.webp",
+  "/imgs/experiences/Experience8.webp",
+  "/imgs/experiences/Experience9.webp",
+  "/imgs/experiences/Experience10.webp",
+  "/imgs/experiences/Experience11.webp",
+  "/imgs/experiences/Experience12.webp",
+  "/imgs/experiences/Experience13.webp",
+  "/imgs/experiences/Experience14.webp",
+];
