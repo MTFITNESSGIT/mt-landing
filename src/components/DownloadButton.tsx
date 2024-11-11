@@ -2,15 +2,21 @@ import { ref, listAll, getDownloadURL } from "firebase/storage";
 import JSZip from "jszip";
 import { storage } from "../utils/firebase";
 import Button from "./Button";
-import { saveAs } from "file-saver";
+import FileSaver, { saveAs } from "file-saver";
 import { useState } from "react";
 import axios from "axios";
+import { IDownloadFilesButtonProps } from "@/types";
 
-const DownloadFilesButton = ({ pathFile, download, paymentId, onProgress }) => {
+const DownloadFilesButton = ({
+  pathFile,
+  download,
+  paymentId,
+  onProgress,
+}: IDownloadFilesButtonProps) => {
   const [buttonText, setButtonText] = useState("Descargar");
   const [loading, setLoading] = useState(false);
 
-  const getFilesFromFolder = async (folderPath) => {
+  const getFilesFromFolder = async (folderPath: string) => {
     const folderRef = ref(storage, folderPath);
 
     try {
@@ -28,18 +34,23 @@ const DownloadFilesButton = ({ pathFile, download, paymentId, onProgress }) => {
     }
   };
 
-  const downloadAndZipFiles = async (downloadUrls) => {
+  const downloadAndZipFiles = async (downloadUrls: string[]) => {
     onProgress(10);
     const zip = new JSZip();
     let completedFiles = 0;
 
     await Promise.all(
-      downloadUrls.map(async (url) => {
+      downloadUrls.map(async (url: string) => {
         const response = await fetch(url);
         const blob = await response.blob();
         const urlObj = new URL(url);
         let fileName = urlObj.pathname.split("/").pop();
-        fileName = decodeURIComponent(fileName.split("?")[0]);
+
+        if (!fileName) {
+          fileName = "default_filename"; // You can provide a more meaningful default name
+        } else {
+          fileName = decodeURIComponent(fileName.split("?")[0]);
+        }
 
         zip.file(fileName, blob);
 

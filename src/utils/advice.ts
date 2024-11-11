@@ -1,4 +1,6 @@
-export const advices = [
+import { TProgram } from "@/types";
+
+export const advices: TProgram[] = [
   {
     title: "ASESORÍA BÁSICA",
     premium: false,
@@ -87,14 +89,6 @@ export const advices = [
           approved: true,
           text: "Reducción de cintura",
         },
-        // {
-        //   approved: true,
-        //   text: "No tenés qué hacer horas de cardio interminables",
-        // },
-        // {
-        //   approved: true,
-        //   text: "Basta de dietas insostenibles",
-        // },
       ],
 
       includes: [
@@ -224,14 +218,6 @@ export const advices = [
           approved: true,
           text: "Reducción de cintura",
         },
-        // {
-        //   approved: true,
-        //   text: "No tenés qué hacer horas de cardio interminables",
-        // },
-        // {
-        //   approved: true,
-        //   text: "Basta de dietas insostenibles",
-        // },
       ],
 
       includes: [
@@ -276,8 +262,8 @@ export const advices = [
     customized: false,
     discount: "25",
     muscle: {
-      newPrice: 150,
-      oldPrice: 180,
+      newPrice: "150",
+      oldPrice: "180",
       title: "GANAR MASA",
       values: [
         {
@@ -338,8 +324,8 @@ export const advices = [
     },
     fat: {
       title: "PERDER GRASA",
-      newPrice: 150,
-      oldPrice: 180,
+      newPrice: "150",
+      oldPrice: "180",
       values: [
         {
           approved: true,

@@ -1,7 +1,7 @@
 import React from "react";
 import { TPlan } from "../types";
 
-const PlanCheckout = ({ background, title, level }: TPlan) => {
+const PlanCheckout = ({ background }: TPlan) => {
   return (
     <div
       className={`${

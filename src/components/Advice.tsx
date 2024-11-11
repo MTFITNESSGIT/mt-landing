@@ -1,8 +1,16 @@
 import React from "react";
 import Button from "./Button";
 import { Badge } from "./ui/badge";
+import { TProgram } from "@/types";
 
-const Advice = ({ title, muscle, fat, premium, customized, discount }: any) => {
+const Advice = ({
+  title,
+  muscle,
+  fat,
+  premium,
+  customized,
+  discount,
+}: TProgram) => {
   return (
     <div className="w-full h-full">
       <h3 className="text-xl sm:text-3xl 2xl:text-4xl text-center font-extrabold text-white my-5">
