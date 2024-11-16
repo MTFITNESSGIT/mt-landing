@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { Progress } from "@/components/ui/progress";
+// import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
 import { capitalizeFirstLetter } from "@/utils/capitalLetter";
 import DownloadFilesButton from "./DownloadButton";
@@ -15,7 +15,7 @@ const ThankYou = () => {
   const type = searchParams.get("type");
   const category = searchParams.get("category");
   const paymentId = searchParams.get("payment_id");
-  const adjustedType = type === "Muscular" ? "Musculo" : type;
+  const adjustedType = type === "muscular" ? "Musculo" : type;
 
   const [loading, setLoading] = useState(true);
   const [download, setDownload] = useState<number>(0);
@@ -25,6 +25,8 @@ const ThankYou = () => {
   const capitalizeCategory = capitalizeFirstLetter(category as string);
 
   const DownloadData = capitalizeType + capitalizeCategory;
+
+  console.log(DownloadData);
 
   useEffect(() => {
     setLoading(true);
@@ -144,18 +146,19 @@ const ThankYou = () => {
                         pathFile={DownloadData}
                         download={download}
                         paymentId={paymentId as string}
-                        onProgress={setProgress} // Set progress update handler
+                        onProgress={setProgress}
+                        progress={progress}
                       />
                     </div>
 
-                    {progress && (
+                    {/* {progress && (
                       <div className="h-full w-full flex items-center justify-center gap-2">
                         <Progress className="text-red" value={progress} />
                         <p className="text-lg text-black text-center w-60">
                           Descargado: {progress}%
                         </p>
                       </div>
-                    )}
+                    )} */}
                   </>
                 ) : (
                   <p className="text-xl text-black text-center sm:text-xl 2xl:text-2xl">

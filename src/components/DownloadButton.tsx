@@ -12,6 +12,7 @@ const DownloadFilesButton = ({
   download,
   paymentId,
   onProgress,
+  progress,
 }: IDownloadFilesButtonProps) => {
   const [buttonText, setButtonText] = useState("Descargar");
   const [loading, setLoading] = useState(false);
@@ -67,7 +68,7 @@ const DownloadFilesButton = ({
 
   const handleDownloadFolder = async () => {
     setLoading(true);
-    setButtonText("Descargando...");
+    setButtonText(`Descargando: ${progress}%`);
 
     try {
       const downloadUrls = await getFilesFromFolder(pathFile);

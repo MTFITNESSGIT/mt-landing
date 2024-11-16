@@ -68,4 +68,5 @@ export interface IDownloadFilesButtonProps {
   download: number;
   paymentId: string;
   onProgress: (progress: number) => void;
+  progress: number;
 }

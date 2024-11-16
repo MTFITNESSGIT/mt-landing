@@ -1,12 +1,15 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import { handleCheckout } from "@/app/checkout/action";
 import { plans } from "@/utils/plans";
 import PlanCheckout from "./PlanCheckout";
+import Loader from "./Loader/Loader";
 
 const CheckoutClient: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const searchParams = useSearchParams();
   const router = useRouter();
   const plan = searchParams.get("plan");
@@ -16,6 +19,7 @@ const CheckoutClient: React.FC = () => {
 
   const handlePay = async () => {
     if (!selectedPlan) return;
+    setIsLoading(true);
 
     try {
       const url = await handleCheckout(selectedPlan);
@@ -79,22 +83,28 @@ const CheckoutClient: React.FC = () => {
         </div>
         <button
           onClick={handlePay}
-          className="w-full max-w-[400px] cursor-pointer bg-blue p-3 rounded-md text-white flex justify-center items-center"
+          className={`w-full max-w-[400px] cursor-pointer bg-blue p-3 rounded-md text-white flex justify-center items-center ${
+            isLoading ? "opacity-70" : ""
+          }`}
+          disabled={isLoading}
         >
           Mercado Pago
-          <Image
-            src="/imgs/mercadopago.png"
-            width={30}
-            height={30}
-            alt="mercadopago"
-            className="ml-2"
-          />
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <>
+              Mercado Pago
+              <Image
+                src="/imgs/mercadopago.png"
+                width={30}
+                height={30}
+                alt="mercadopago"
+                className="ml-2"
+              />
+            </>
+          )}
         </button>
         <div className="w-[300px] h-[3px] bg-gray-200"></div>
-        <div
-          id="paypal-button-container"
-          className="w-full max-w-[400px] h-full"
-        ></div>
       </div>
     </section>
   );
