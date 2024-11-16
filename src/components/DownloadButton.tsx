@@ -13,9 +13,6 @@ const DownloadFilesButton = ({
   paymentId,
   onProgress,
 }: IDownloadFilesButtonProps) => {
-  console.log(storage, "storage");
-  console.log(process.env.NEXT_PUBLIC_API_KEY, "env api key");
-
   const [buttonText, setButtonText] = useState("Descargar");
   const [loading, setLoading] = useState(false);
 
@@ -50,7 +47,7 @@ const DownloadFilesButton = ({
         let fileName = urlObj.pathname.split("/").pop();
 
         if (!fileName) {
-          fileName = "default_filename"; // You can provide a more meaningful default name
+          fileName = "default_filename";
         } else {
           fileName = decodeURIComponent(fileName.split("?")[0]);
         }

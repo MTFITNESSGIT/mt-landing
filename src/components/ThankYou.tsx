@@ -15,12 +15,13 @@ const ThankYou = () => {
   const type = searchParams.get("type");
   const category = searchParams.get("category");
   const paymentId = searchParams.get("payment_id");
+  const adjustedType = type === "Muscular" ? "Musculo" : type;
 
   const [loading, setLoading] = useState(true);
-  const [download, setDownload] = useState<number>(0); // Track download count
-  const [progress, setProgress] = useState(0); // Track download progress
+  const [download, setDownload] = useState<number>(0);
+  const [progress, setProgress] = useState(0);
 
-  const capitalizeType = capitalizeFirstLetter(type as string);
+  const capitalizeType = capitalizeFirstLetter(adjustedType as string);
   const capitalizeCategory = capitalizeFirstLetter(category as string);
 
   const DownloadData = capitalizeType + capitalizeCategory;
@@ -28,17 +29,17 @@ const ThankYou = () => {
   useEffect(() => {
     setLoading(true);
 
-    if (!paymentId) return; // Check if paymentId exists, else do nothing
+    if (!paymentId) return;
 
     const fetchPayment = async () => {
       try {
         const { data } = await axios.get(
           `/api/get-payment?paymentId=${paymentId}`
         );
-        setDownload(data.download); // Set the descargado value from response
+        setDownload(data.download);
       } catch (error) {
         console.error("Failed to fetch payment info", error);
-        // router.replace("/404");
+        router.replace("/404");
       } finally {
         setLoading(false);
       }

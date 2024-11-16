@@ -10,8 +10,9 @@ const CheckoutClient: React.FC = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const plan = searchParams.get("plan");
+  const level = searchParams.get("level");
   const selectedPlan = plans.find((p) => p.title.toLowerCase() === plan);
-  const { title, background, category, includes, values } = selectedPlan || {};
+  const { title, background, includes, values } = selectedPlan || {};
 
   const handlePay = async () => {
     if (!selectedPlan) return;
@@ -36,7 +37,7 @@ const CheckoutClient: React.FC = () => {
             Estas por suscribirte al plan
           </h2>
           <h3 className="text-red font-bold text-3xl text-center uppercase">
-            {title} nivel {category}
+            {title} nivel {level}
           </h3>
         </div>
         <div className="w-full h-full flex flex-col gap-5 justify-center items-start md:flex-row">
