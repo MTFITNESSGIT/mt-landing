@@ -37,6 +37,8 @@ const DownloadFilesButton = ({
 
   const downloadAndZipFiles = async (downloadUrls: string[]) => {
     onProgress(10);
+    setButtonText(`Descargando: ${progress}%`);
+
     const zip = new JSZip();
     let completedFiles = 0;
 
@@ -58,6 +60,7 @@ const DownloadFilesButton = ({
         // Calculate progress
         completedFiles += 1;
         const progress = (completedFiles / downloadUrls.length) * 100;
+        setButtonText(`Descargando: ${progress}%`);
         onProgress(progress);
       })
     );
