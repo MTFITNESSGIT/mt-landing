@@ -138,7 +138,7 @@ const ThankYou = () => {
                         Podrás descargar el plan hasta un máximo de 2 veces
                       </p>
                     </div>
-                    <div>
+                    <div className="w-full max-w-[500px] lg:max-w-[300px]">
                       <DownloadFilesButton
                         pathFile={DownloadData}
                         download={download}

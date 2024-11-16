@@ -13,6 +13,9 @@ const DownloadFilesButton = ({
   paymentId,
   onProgress,
 }: IDownloadFilesButtonProps) => {
+  console.log(storage, "storage");
+  console.log(process.env.NEXT_PUBLIC_API_KEY, "env api key");
+
   const [buttonText, setButtonText] = useState("Descargar");
   const [loading, setLoading] = useState(false);
 

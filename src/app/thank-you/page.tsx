@@ -2,7 +2,7 @@ import ThankYou from "@/components/ThankYou";
 import { Skeleton } from "@/components/ui/skeleton";
 import React, { Suspense } from "react";
 
-export default function CheckoutPage() {
+export default function ThankYouPage() {
   return (
     <Suspense
       fallback={
