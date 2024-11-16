@@ -27,10 +27,10 @@ export async function GET(request: Request) {
 
     return new NextResponse(JSON.stringify(payment), { status: 200 });
   } catch (error) {
-    console.error("Failed to retrieve payment:", error);
-    return new NextResponse(
-      JSON.stringify({ message: "Internal Server Error" }),
+    new NextResponse(
+      JSON.stringify({ message: "Internal Server Error", error }),
       { status: 500 }
     );
+    throw new Error("Failed to retrieve payment:");
   }
 }

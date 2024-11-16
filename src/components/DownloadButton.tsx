@@ -79,8 +79,9 @@ const DownloadFilesButton = ({
         download: download + 1,
       });
     } catch (error) {
-      console.error("Error downloading folder:", error);
       setButtonText("Error");
+      console.error(error);
+      throw new Error("Error downloading folder:");
     } finally {
       setLoading(false);
       setTimeout(() => setButtonText("Descargar"), 3000);
