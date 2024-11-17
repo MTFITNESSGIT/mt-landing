@@ -1,6 +1,6 @@
 export const paragraph = [
   {
-    title: "PLAN DE ENTRENAMIENTO PERSONALIZADO",
+    title: "PLAN ENTRENAMIENTO PERSONALIZADO",
     texts: [
       "Te ofrezco la oportunidad de tener una rutina de entrenamiento completamente personalizada, diseñada específicamente para ti y adaptada a tus objetivos y al número de días que puedas dedicar al ejercicio. Ya sea que busques perder peso, ganar masa muscular o simplemente mantenerte en forma, crearé un plan que se ajuste a tus necesidades y estilo de vida.",
       "Cada ejercicio de tu rutina incluirá un video explicativo, lo que te permitirá aprender la técnica correcta y mejorar progresivamente tanto en forma como en peso. No solo te guiaré a través de los movimientos, sino que también te ayudaré a entender la lógica detrás de cada ejercicio. Esto significa que dejarás de depender del profesor del gimnasio que presta poca atención a tus necesidades y tendrás la confianza para entrenar de manera efectiva.",
@@ -9,7 +9,7 @@ export const paragraph = [
     switch: false,
   },
   {
-    title: "PLAN DE ALIMENTACION PERSONALIZADO",
+    title: "PLAN ALIMENTACION PERSONALIZADO",
     texts: [
       "Te ofrezco la oportunidad de tener un plan de alimentación totalmente personalizado, diseñado específicamente para ti y adaptado a tus objetivos nutricionales. Ya sea que busques perder peso, ganar masa muscular o simplemente llevar un estilo de vida más saludable, crearé un programa que se ajuste a tus necesidades y preferencias alimenticias.",
       "Cada comida y snack estará cuidadosamente planeado para asegurarte de que obtienes todos los nutrientes necesarios y que disfrutas de lo que comes. Te proporcionaré recetas y recomendaciones que se adapten a tus gustos, para que no solo sigas el plan, sino que también disfrutes del proceso.",

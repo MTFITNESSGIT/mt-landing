@@ -5,14 +5,14 @@ const Paragraph = ({ title, texts, Switch }: TParagraph) => {
   return (
     <div
       className={`${
-        Switch ? "pr-6" : "pl-6"
+        Switch ? "md:pr-6" : "md:pl-6"
       } w-full transition-all duration-700 transform`}
     >
       <div
-        className={`flex gap-2 items-center justify-center lg:justify-start lg:items-left flex-row`}
+        className={`flex gap-2 items-center justify-center md:justify-start lg:items-left`}
       >
         <p className="text-lg">✅</p>
-        <h3 className="font-extrabold text-xl md:text-2xl 2xl:text-3xl my-2">
+        <h3 className="font-extrabold text-xl text-left md:text-2xl 2xl:text-3xl my-2">
           {title}
         </h3>
       </div>

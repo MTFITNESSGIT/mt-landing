@@ -10,14 +10,14 @@ const Whatsapp = () => {
     <div className="relative  w-full h-full">
       <div
         onClick={handleWhatsAppClick}
-        className="bottom-10 right-10 fixed cursor-pointer"
+        className="bottom-5 right-5 fixed cursor-pointer"
       >
         <Image
           src="/imgs/whatsapp.webp"
           alt="WhatsApp"
           width="300"
           height="300"
-          className="w-[100px] h-[100px]"
+          className="w-[60px] h-[60px] md:w-[75px] md:h-[75px]"
         />
       </div>
     </div>
