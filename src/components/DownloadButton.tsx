@@ -80,6 +80,7 @@ const DownloadFilesButton = ({
       const downloadUrls = await getFilesFromFolder(pathFile);
       await downloadAndZipFiles(downloadUrls);
       setButtonText("Descargado!");
+      onProgress(0);
 
       await axios.post("/api/payment-download-update", {
         paymentId,
