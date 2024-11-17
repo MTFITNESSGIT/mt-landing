@@ -11,6 +11,9 @@ const Advice = ({
   customized,
   discount,
 }: TProgram) => {
+  const handleWhatsAppClick = () => {
+    window.open("https://wa.me/message/LWNTGOUUVFJVO1", "_blank");
+  };
   return (
     <div className="w-full h-full">
       <h3 className="text-xl sm:text-3xl 2xl:text-4xl text-center font-extrabold text-white my-5">
@@ -82,6 +85,7 @@ const Advice = ({
               text="comprar"
               textColor={"text-black"}
               background={"bg-white"}
+              onClick={handleWhatsAppClick}
             />
           </div>
         </div>
@@ -153,6 +157,7 @@ const Advice = ({
               text="comprar"
               textColor={"text-black"}
               background={"bg-white"}
+              onClick={handleWhatsAppClick}
             />
           </div>
         </div>
