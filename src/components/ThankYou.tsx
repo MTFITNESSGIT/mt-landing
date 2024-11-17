@@ -27,7 +27,7 @@ const ThankYou = () => {
   const DownloadData = capitalizeType + capitalizeCategory;
   const folderName =
     type === "muscular"
-      ? "GanarMasa" + capitalizeType + capitalizeCategory
+      ? "GanarMasaMuscular" + capitalizeCategory
       : "Perder" + capitalizeType + capitalizeCategory;
 
   console.log(DownloadData);
@@ -155,15 +155,6 @@ const ThankYou = () => {
                         folderName={folderName}
                       />
                     </div>
-
-                    {/* {progress && (
-                      <div className="h-full w-full flex items-center justify-center gap-2">
-                        <Progress className="text-red" value={progress} />
-                        <p className="text-lg text-black text-center w-60">
-                          Descargado: {progress}%
-                        </p>
-                      </div>
-                    )} */}
                   </>
                 ) : (
                   <p className="text-xl text-black text-center sm:text-xl 2xl:text-2xl">

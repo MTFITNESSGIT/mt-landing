@@ -60,7 +60,9 @@ const DownloadFilesButton = ({
 
         // Calculate progress
         completedFiles += 1;
-        const progress = (completedFiles / downloadUrls.length) * 100;
+        const progress = Math.round(
+          (completedFiles / downloadUrls.length) * 100
+        );
         onProgress(progress);
         setButtonText(`Descargando: ${progress}%`);
       })
