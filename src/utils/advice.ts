@@ -6,7 +6,7 @@ export const advices: TProgram[] = [
     premium: false,
     customized: false,
     muscle: {
-      title: "GANAR MASA",
+      title: "GANAR MASA MUSCULAR",
       newPrice: "39.999",
       values: [
         {
@@ -19,7 +19,11 @@ export const advices: TProgram[] = [
         },
         {
           approved: true,
-          text: "Aumento de fuerza y resistencia para el día a día",
+          text: "Aumento de fuerza",
+        },
+        {
+          approved: true,
+          text: "Resistencia para el día a día",
         },
         {
           approved: true,
@@ -27,25 +31,37 @@ export const advices: TProgram[] = [
         },
         {
           approved: true,
-          text: "Aprendé a alimentarte y nutrirte",
+          text: "Rutina de movilidad",
         },
       ],
       includes: [
         {
           approved: true,
-          text: "Plan de entrenamiento semanal 100% personalizado",
+          text: "Planes de entrenamiento semanal (3 a 5 días)",
         },
         {
           approved: true,
-          text: "Plan de alimentación 100% personalizado",
+          text: "Chequeo físico cada 15 días",
         },
         {
           approved: true,
-          text: "E-book “Guía definitiva de Ganancia de masa“",
+          text: "Guía de alimentación y consejos nutricionales",
         },
         {
           approved: true,
-          text: "+50 recetas fit",
+          text: "Asesoramiento de suplementación",
+        },
+        {
+          approved: true,
+          text: "E-book “Guía definitiva para masa muscular“",
+        },
+        {
+          approved: true,
+          text: "Recetario +100 recetas fit",
+        },
+        {
+          approved: true,
+          text: "Recetario Vegano y Vegetariano (+17 recetas)",
         },
         {
           approved: true,
@@ -53,20 +69,36 @@ export const advices: TProgram[] = [
         },
         {
           approved: true,
-          text: "Contacto vía WhatsApp 24hs",
+          text: "Contacto vía WhatsApp limitado (lun a vier)",
         },
         {
           approved: false,
-          text: "Cálculo de calorías en FatSecret",
+          text: "Contacto vía WhatsApp 24hs / 7 días",
         },
         {
           approved: false,
-          text: "Videollamadas c/ 15 días",
+          text: "Planificación 100% personalizada",
+        },
+        {
+          approved: false,
+          text: "Asesoramiento nutricional",
+        },
+        {
+          approved: false,
+          text: "Cálculo de Macronutrientes",
+        },
+        {
+          approved: false,
+          text: "Llamada inicial y de cierre",
+        },
+        {
+          approved: false,
+          text: "Videollamadas cada 15 días",
         },
       ],
     },
     fat: {
-      title: "PERDER GRASA",
+      title: "PERDER TEJIDO ADIPOSO",
       newPrice: "39.999",
       values: [
         {
@@ -89,24 +121,40 @@ export const advices: TProgram[] = [
           approved: true,
           text: "Reducción de cintura",
         },
+        {
+          approved: true,
+          text: "No más horas de cardio interminables",
+        },
       ],
 
       includes: [
         {
           approved: true,
-          text: "Plan de entrenamiento semanal 100% personalizado",
+          text: "Planes de entrenamiento semanal (3 a 5 días)",
         },
         {
           approved: true,
-          text: "Plan de alimentación 100% personalizado",
+          text: "Chequeo físico cada 15 días",
         },
         {
           approved: true,
-          text: "E-book “Guía definitiva de Pérdida de grasa”",
+          text: "Guía de alimentación y consejos nutricionales",
         },
         {
           approved: true,
-          text: "+50 recetas fit",
+          text: "Asesoramiento de suplementación",
+        },
+        {
+          approved: true,
+          text: "E-book “Guía definitiva para masa muscular“",
+        },
+        {
+          approved: true,
+          text: "Recetario +100 recetas fit",
+        },
+        {
+          approved: true,
+          text: "Recetario Vegano y Vegetariano (+17 recetas)",
         },
         {
           approved: true,
@@ -114,15 +162,31 @@ export const advices: TProgram[] = [
         },
         {
           approved: true,
-          text: "Contacto vía WhatsApp 24hs",
+          text: "Contacto vía WhatsApp limitado (lun a vier)",
         },
         {
           approved: false,
-          text: "Cálculo de calorías en FatSecret",
+          text: "Contacto vía WhatsApp 24hs / 7 días",
         },
         {
           approved: false,
-          text: "Videollamadas c/ 15 días",
+          text: "Planificación 100% personalizada",
+        },
+        {
+          approved: false,
+          text: "Asesoramiento nutricional",
+        },
+        {
+          approved: false,
+          text: "Cálculo de Macronutrientes",
+        },
+        {
+          approved: false,
+          text: "Llamada inicial y de cierre",
+        },
+        {
+          approved: false,
+          text: "Videollamadas cada 15 días",
         },
       ],
     },
@@ -135,7 +199,7 @@ export const advices: TProgram[] = [
     muscle: {
       newPrice: "82.999",
       oldPrice: "100.000",
-      title: "GANAR MASA",
+      title: "GANAR MASA MUSCULAR",
       values: [
         {
           approved: true,
@@ -147,7 +211,11 @@ export const advices: TProgram[] = [
         },
         {
           approved: true,
-          text: "Aumento de fuerza y resistencia para el día a día",
+          text: "Aumento de fuerza",
+        },
+        {
+          approved: true,
+          text: "Resistencia para el día a día",
         },
         {
           approved: true,
@@ -155,25 +223,37 @@ export const advices: TProgram[] = [
         },
         {
           approved: true,
-          text: "Aprendé a alimentarte y nutrirte",
+          text: "Rutina de movilidad",
         },
       ],
       includes: [
         {
           approved: true,
-          text: "Plan de entrenamiento semanal 100% personalizado",
+          text: "Planes de entrenamiento semanal (3 a 5 días)",
         },
         {
           approved: true,
-          text: "Plan de alimentación 100% personalizado",
+          text: "Chequeo físico cada 15 días",
         },
         {
           approved: true,
-          text: "E-book “Guía definitiva de Ganancia de masa“",
+          text: "Guía de alimentación y consejos nutricionales",
         },
         {
           approved: true,
-          text: "+50 recetas fit",
+          text: "Asesoramiento de suplementación",
+        },
+        {
+          approved: true,
+          text: "E-book “Guía definitiva para masa muscular“",
+        },
+        {
+          approved: true,
+          text: "Recetario +100 recetas fit",
+        },
+        {
+          approved: true,
+          text: "Recetario Vegano y Vegetariano (+17 recetas)",
         },
         {
           approved: true,
@@ -181,20 +261,36 @@ export const advices: TProgram[] = [
         },
         {
           approved: true,
-          text: "Contacto vía WhatsApp 24hs",
+          text: "Contacto vía WhatsApp limitado (lun a vier)",
         },
         {
           approved: true,
-          text: "Cálculo de calorías en FatSecret",
+          text: "Contacto vía WhatsApp 24hs / 7 días",
         },
         {
           approved: true,
-          text: "Videollamadas c/ 15 días",
+          text: "Planificación 100% personalizada",
+        },
+        {
+          approved: true,
+          text: "Asesoramiento nutricional",
+        },
+        {
+          approved: false,
+          text: "Cálculo de Macronutrientes",
+        },
+        {
+          approved: false,
+          text: "Llamada inicial y de cierre",
+        },
+        {
+          approved: false,
+          text: "Videollamadas cada 15 días",
         },
       ],
     },
     fat: {
-      title: "PERDER GRASA",
+      title: "PERDER TEJIDO ADIPOSO",
       newPrice: "82.999",
       oldPrice: "100.000",
       values: [
@@ -218,24 +314,39 @@ export const advices: TProgram[] = [
           approved: true,
           text: "Reducción de cintura",
         },
+        {
+          approved: true,
+          text: "No más horas de cardio interminables",
+        },
       ],
-
       includes: [
         {
           approved: true,
-          text: "Plan de entrenamiento semanal 100% personalizado",
+          text: "Planes de entrenamiento semanal (3 a 5 días)",
         },
         {
           approved: true,
-          text: "Plan de alimentación 100% personalizado",
+          text: "Chequeo físico cada 15 días",
         },
         {
           approved: true,
-          text: "E-book “Guía definitiva de Pérdida de grasa”",
+          text: "Guía de alimentación y consejos nutricionales",
         },
         {
           approved: true,
-          text: "+50 recetas fit",
+          text: "Asesoramiento de suplementación",
+        },
+        {
+          approved: true,
+          text: "E-book “Guía definitiva para masa muscular“",
+        },
+        {
+          approved: true,
+          text: "Recetario +100 recetas fit",
+        },
+        {
+          approved: true,
+          text: "Recetario Vegano y Vegetariano (+17 recetas)",
         },
         {
           approved: true,
@@ -243,15 +354,31 @@ export const advices: TProgram[] = [
         },
         {
           approved: true,
-          text: "Contacto vía WhatsApp 24hs",
+          text: "Contacto vía WhatsApp limitado (lun a vier)",
         },
         {
           approved: true,
-          text: "Cálculo de calorías en FatSecret",
+          text: "Contacto vía WhatsApp 24hs / 7 días",
         },
         {
           approved: true,
-          text: "Videollamadas c/ 15 días",
+          text: "Planificación 100% personalizada",
+        },
+        {
+          approved: true,
+          text: "Asesoramiento nutricional",
+        },
+        {
+          approved: false,
+          text: "Cálculo de Macronutrientes",
+        },
+        {
+          approved: false,
+          text: "Llamada inicial y de cierre",
+        },
+        {
+          approved: false,
+          text: "Videollamadas cada 15 días",
         },
       ],
     },
@@ -264,7 +391,7 @@ export const advices: TProgram[] = [
     muscle: {
       newPrice: "150",
       oldPrice: "180",
-      title: "GANAR MASA",
+      title: "GANAR MASA MUSCULAR",
       values: [
         {
           approved: true,
@@ -276,7 +403,11 @@ export const advices: TProgram[] = [
         },
         {
           approved: true,
-          text: "Aumento de fuerza y resistencia para el día a día",
+          text: "Aumento de fuerza",
+        },
+        {
+          approved: true,
+          text: "Resistencia para el día a día",
         },
         {
           approved: true,
@@ -284,25 +415,37 @@ export const advices: TProgram[] = [
         },
         {
           approved: true,
-          text: "Aprendé a alimentarte y nutrirte",
+          text: "Rutina de movilidad",
         },
       ],
       includes: [
         {
           approved: true,
-          text: "Plan de entrenamiento semanal 100% personalizado",
+          text: "Planes de entrenamiento semanal (3 a 5 días)",
         },
         {
           approved: true,
-          text: "Plan de alimentación 100% personalizado",
+          text: "Chequeo físico cada 15 días",
         },
         {
           approved: true,
-          text: "E-book “Guía definitiva de Ganancia de masa“",
+          text: "Guía de alimentación y consejos nutricionales",
         },
         {
           approved: true,
-          text: "+50 recetas fit",
+          text: "Asesoramiento de suplementación",
+        },
+        {
+          approved: true,
+          text: "E-book “Guía definitiva para masa muscular“",
+        },
+        {
+          approved: true,
+          text: "Recetario +100 recetas fit",
+        },
+        {
+          approved: true,
+          text: "Recetario Vegano y Vegetariano (+17 recetas)",
         },
         {
           approved: true,
@@ -310,20 +453,36 @@ export const advices: TProgram[] = [
         },
         {
           approved: true,
-          text: "Contacto vía WhatsApp 24hs",
+          text: "Contacto vía WhatsApp limitado (lun a vier)",
         },
         {
           approved: true,
-          text: "Cálculo de calorías en FatSecret",
+          text: "Contacto vía WhatsApp 24hs / 7 días",
         },
         {
           approved: true,
-          text: "Videollamadas c/ 15 días",
+          text: "Planificación 100% personalizada",
+        },
+        {
+          approved: true,
+          text: "Asesoramiento nutricional",
+        },
+        {
+          approved: true,
+          text: "Cálculo de Macronutrientes",
+        },
+        {
+          approved: true,
+          text: "Llamada inicial y de cierre",
+        },
+        {
+          approved: true,
+          text: "Videollamadas cada 15 días",
         },
       ],
     },
     fat: {
-      title: "PERDER GRASA",
+      title: "PERDER TEJIDO ADIPOSO",
       newPrice: "150",
       oldPrice: "180",
       values: [
@@ -347,32 +506,39 @@ export const advices: TProgram[] = [
           approved: true,
           text: "Reducción de cintura",
         },
-        // {
-        //   approved: true,
-        //   text: "No tenés qué hacer horas de cardio interminables",
-        // },
-        // {
-        //   approved: true,
-        //   text: "Basta de dietas insostenibles",
-        // },
+        {
+          approved: true,
+          text: "No más horas de cardio interminables",
+        },
       ],
-
       includes: [
         {
           approved: true,
-          text: "Plan de entrenamiento semanal 100% personalizado",
+          text: "Planes de entrenamiento semanal (3 a 5 días)",
         },
         {
           approved: true,
-          text: "Plan de alimentación 100% personalizado",
+          text: "Chequeo físico cada 15 días",
         },
         {
           approved: true,
-          text: "E-book “Guía definitiva de Pérdida de grasa”",
+          text: "Guía de alimentación y consejos nutricionales",
         },
         {
           approved: true,
-          text: "+50 recetas fit",
+          text: "Asesoramiento de suplementación",
+        },
+        {
+          approved: true,
+          text: "E-book “Guía definitiva para masa muscular“",
+        },
+        {
+          approved: true,
+          text: "Recetario +100 recetas fit",
+        },
+        {
+          approved: true,
+          text: "Recetario Vegano y Vegetariano (+17 recetas)",
         },
         {
           approved: true,
@@ -380,15 +546,31 @@ export const advices: TProgram[] = [
         },
         {
           approved: true,
-          text: "Contacto vía WhatsApp 24hs",
+          text: "Contacto vía WhatsApp limitado (lun a vier)",
         },
         {
           approved: true,
-          text: "Cálculo de calorías en FatSecret",
+          text: "Contacto vía WhatsApp 24hs / 7 días",
         },
         {
           approved: true,
-          text: "Videollamadas c/ 15 días",
+          text: "Planificación 100% personalizada",
+        },
+        {
+          approved: true,
+          text: "Asesoramiento nutricional",
+        },
+        {
+          approved: true,
+          text: "Cálculo de Macronutrientes",
+        },
+        {
+          approved: true,
+          text: "Llamada inicial y de cierre",
+        },
+        {
+          approved: true,
+          text: "Videollamadas cada 15 días",
         },
       ],
     },

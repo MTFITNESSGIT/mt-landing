@@ -6,9 +6,9 @@ const Loader = () => {
       className="container"
       x="0px"
       y="0px"
-      viewBox="0 0 120 120"
-      height="120"
-      width="120"
+      viewBox="0 0 40 40"
+      height="60"
+      width="60"
       preserveAspectRatio="xMidYMid meet"
     >
       <path

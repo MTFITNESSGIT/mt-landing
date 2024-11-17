@@ -14,12 +14,8 @@ const config: Config = {
         "plan-2": "url('/imgs/plan2.webp')",
         "plan-3": "url('/imgs/plan3.webp')",
         "premium-gradient": "linear-gradient(to right, #FE3231, #FF914C)",
-        marmol: "url('/imgs/marmol.webp')",
       },
       colors: {
-        "premium-red": "#FE3231",
-        "premium-orange": "#FF914C",
-        "plan-background": "#1E140B",
         red: "#da0504cc",
         blue: "rgb(41, 105, 176)",
         background: "hsl(var(--background))",

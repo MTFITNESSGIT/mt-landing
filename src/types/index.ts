@@ -21,6 +21,7 @@ export interface TPlan {
   level?: string;
   type?: string;
   category?: string;
+  values?: string[];
 }
 
 export interface TVideo {
@@ -69,4 +70,5 @@ export interface IDownloadFilesButtonProps {
   paymentId: string;
   onProgress: (progress: number) => void;
   progress: number;
+  folderName: string;
 }

@@ -28,7 +28,7 @@ export default function RootLayout({
         className={`text-white w-full max-w-[1350px] mx-auto ${oswald.className}`}
       >
         <Header />
-        <main className="flex w-full flex-col items-center justify-between text-white">
+        <main className="flex w-full flex-col items-center justify-between text-white blob-background">
           {children}
         </main>
         <Footer />

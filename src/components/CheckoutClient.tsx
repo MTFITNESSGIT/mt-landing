@@ -15,7 +15,7 @@ const CheckoutClient: React.FC = () => {
   const plan = searchParams.get("plan");
   const level = searchParams.get("level");
   const selectedPlan = plans.find((p) => p.title.toLowerCase() === plan);
-  const { title, background, includes, values } = selectedPlan || {};
+  const { title, background, includes } = selectedPlan || {};
 
   const handlePay = async () => {
     if (!selectedPlan) return;
@@ -51,18 +51,6 @@ const CheckoutClient: React.FC = () => {
           />
           <div className="text-black mt-2">
             <div className="w-full h-full">
-              {values &&
-                values.map((value, i) => (
-                  <div
-                    className="flex justify-start items-center gap-2"
-                    key={i}
-                  >
-                    {value.approved && <p className="text-lg">✅</p>}
-                    <p className="text-base">{value.text}</p>
-                  </div>
-                ))}
-            </div>
-            <div className="w-full h-full">
               <h4 className="text-lg font-bold my-4">¿Que incluye?</h4>
               {includes &&
                 includes.map((include, i) => (
@@ -88,7 +76,6 @@ const CheckoutClient: React.FC = () => {
           }`}
           disabled={isLoading}
         >
-          Mercado Pago
           {isLoading ? (
             <Loader />
           ) : (

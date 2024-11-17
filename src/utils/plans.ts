@@ -8,52 +8,34 @@ export const plans = [
     category: "principiante",
     quantity: 3,
     price: 30000,
-    values: [
-      {
-        approved: true,
-        text: "Más músculo y menos grasa",
-      },
-      {
-        approved: true,
-        text: "Definición muscular y tonificación",
-      },
-      {
-        approved: true,
-        text: "Físico atlético, definido y tonificado",
-      },
-    ],
     includes: [
       {
         approved: true,
-        text: "Planes de entrenamiento semanal (3 a 5 días)",
+        text: "Rutina de Hipertrofia para 3 días de entrenamiento semanal",
       },
       {
         approved: true,
-        text: "Guía de alimentación y consejos nutricionales",
+        text: "Planificación de 12 semanas de progreso (90 DÍAS)",
       },
       {
         approved: true,
-        text: "E-book “Guía definitiva de Ganancia de masa“",
+        text: "Ejemplos de ejercicios a través de enlaces a videos en YouTube",
       },
       {
         approved: true,
-        text: "+50 recetas fit",
+        text: "Guía de Alimentación + Recetario FIT (+50 RECETAS)",
       },
       {
         approved: true,
-        text: "Comunidad por WhatsApp",
+        text: "Video explicativo del PDF al 100%",
       },
       {
-        approved: false,
-        text: "Contacto vía WhatsApp 24hs",
+        approved: true,
+        text: "Rutina de movilidad y Abdomen",
       },
       {
-        approved: false,
-        text: "Planificación 100% personalizada",
-      },
-      {
-        approved: false,
-        text: "Asesoramiento nutricional",
+        approved: true,
+        text: "Cuaderno de entrenamiento para registrar tu progreso",
       },
     ],
   },
@@ -66,52 +48,34 @@ export const plans = [
     category: "intermedio",
     quantity: 4,
     price: 30000,
-    values: [
-      {
-        approved: true,
-        text: "Más músculo y menos grasa",
-      },
-      {
-        approved: true,
-        text: "Definición muscular y tonificación",
-      },
-      {
-        approved: true,
-        text: "Físico atlético, definido y tonificado",
-      },
-    ],
     includes: [
       {
         approved: true,
-        text: "Planes de entrenamiento semanal (3 a 5 días)",
+        text: "Rutina de Hipertrofia para 4 días de entrenamiento semanal",
       },
       {
         approved: true,
-        text: "Guía de alimentación y consejos nutricionales",
+        text: "Planificación de 12 semanas de progreso (90 DÍAS)",
       },
       {
         approved: true,
-        text: "E-book “Guía definitiva de Ganancia de masa“",
+        text: "Ejemplos de ejercicios a través de enlaces a videos en YouTube",
       },
       {
         approved: true,
-        text: "+50 recetas fit",
+        text: "Guía de Alimentación + Recetario FIT (+50 RECETAS)",
       },
       {
         approved: true,
-        text: "Comunidad por WhatsApp",
+        text: "Video explicativo del PDF al 100%",
       },
       {
-        approved: false,
-        text: "Contacto vía WhatsApp 24hs",
+        approved: true,
+        text: "Rutina de movilidad y Abdomen",
       },
       {
-        approved: false,
-        text: "Planificación 100% personalizada",
-      },
-      {
-        approved: false,
-        text: "Asesoramiento nutricional",
+        approved: true,
+        text: "Cuaderno de entrenamiento para registrar tu progreso",
       },
     ],
   },
@@ -124,52 +88,35 @@ export const plans = [
     category: "avanzado",
     price: 30000,
     quantity: 5,
-    values: [
-      {
-        approved: true,
-        text: "Más músculo y menos grasa",
-      },
-      {
-        approved: true,
-        text: "Definición muscular y tonificación",
-      },
-      {
-        approved: true,
-        text: "Físico atlético, definido y tonificado",
-      },
-    ],
+
     includes: [
       {
         approved: true,
-        text: "Planes de entrenamiento semanal (3 a 5 días)",
+        text: "Rutina de Hipertrofia para 3 días de entrenamiento semanal",
       },
       {
         approved: true,
-        text: "Guía de alimentación y consejos nutricionales",
+        text: "Planificación de 12 semanas de progreso (90 DÍAS)",
       },
       {
         approved: true,
-        text: "E-book “Guía definitiva de Ganancia de masa“",
+        text: "Ejemplos de ejercicios a través de enlaces a videos en YouTube",
       },
       {
         approved: true,
-        text: "+50 recetas fit",
+        text: "Guía de Alimentación + Recetario FIT (+50 RECETAS)",
       },
       {
         approved: true,
-        text: "Comunidad por WhatsApp",
+        text: "Video explicativo del PDF al 100%",
       },
       {
-        approved: false,
-        text: "Contacto vía WhatsApp 24hs",
+        approved: true,
+        text: "Rutina de movilidad y Abdomen",
       },
       {
-        approved: false,
-        text: "Planificación 100% personalizada",
-      },
-      {
-        approved: false,
-        text: "Asesoramiento nutricional",
+        approved: true,
+        text: "Cuaderno de entrenamiento para registrar tu progreso",
       },
     ],
   },
@@ -182,64 +129,34 @@ export const plans = [
     category: "principiante",
     quantity: 3,
     price: 30000,
-    values: [
-      {
-        approved: true,
-        text: "Guia de pérdida de grasaa",
-      },
-      {
-        approved: true,
-        text: "Aumento de energía",
-      },
-      {
-        approved: true,
-        text: "Rutina para abdominales",
-      },
-      {
-        approved: true,
-        text: "Autoestima y confianza",
-      },
-      {
-        approved: true,
-        text: "Reducción de cintura",
-      },
-      {
-        approved: true,
-        text: "No tenés qué hacer horas de cardio interminables",
-      },
-    ],
     includes: [
       {
         approved: true,
-        text: "Planes de entrenamiento semanal (3 a 5 días)",
+        text: "Rutina de Hipertrofia para 3 días de entrenamiento semanal",
       },
       {
         approved: true,
-        text: "Guía de alimentación y consejos nutricionales",
+        text: "Planificación de 12 semanas de progreso (90 DÍAS)",
       },
       {
         approved: true,
-        text: "E-book “Guía definitiva de Pérdida de grasa” ",
+        text: "Ejemplos de ejercicios a través de enlaces a videos en YouTube",
       },
       {
         approved: true,
-        text: "+50 recetas fit",
+        text: "Guía de Alimentación + Recetario FIT (+50 RECETAS)",
       },
       {
         approved: true,
-        text: "Comunidad por WhatsApp",
+        text: "Video explicativo del PDF al 100%",
       },
       {
-        approved: false,
-        text: "Contacto vía WhatsApp 24hs",
+        approved: true,
+        text: "Rutina de movilidad y Abdomen",
       },
       {
-        approved: false,
-        text: "Planificación 100% personalizada",
-      },
-      {
-        approved: false,
-        text: "Asesoramiento nutricional",
+        approved: true,
+        text: "Cuaderno de entrenamiento para registrar tu progreso",
       },
     ],
   },
@@ -252,64 +169,34 @@ export const plans = [
     category: "intermedio",
     quantity: 4,
     price: 30000,
-    values: [
-      {
-        approved: true,
-        text: "Guia de pérdida de grasaa",
-      },
-      {
-        approved: true,
-        text: "Aumento de energía",
-      },
-      {
-        approved: true,
-        text: "Rutina para abdominales",
-      },
-      {
-        approved: true,
-        text: "Autoestima y confianza",
-      },
-      {
-        approved: true,
-        text: "Reducción de cintura",
-      },
-      {
-        approved: true,
-        text: "No tenés qué hacer horas de cardio interminables",
-      },
-    ],
     includes: [
       {
         approved: true,
-        text: "Planes de entrenamiento semanal (3 a 5 días)",
+        text: "Rutina de Hipertrofia para 4 días de entrenamiento semanal",
       },
       {
         approved: true,
-        text: "Guía de alimentación y consejos nutricionales",
+        text: "Planificación de 12 semanas de progreso (90 DÍAS)",
       },
       {
         approved: true,
-        text: "E-book “Guía definitiva de Pérdida de grasa” ",
+        text: "Ejemplos de ejercicios a través de enlaces a videos en YouTube",
       },
       {
         approved: true,
-        text: "+50 recetas fit",
+        text: "Guía de Alimentación + Recetario FIT (+50 RECETAS)",
       },
       {
         approved: true,
-        text: "Comunidad por WhatsApp",
+        text: "Video explicativo del PDF al 100%",
       },
       {
-        approved: false,
-        text: "Contacto vía WhatsApp 24hs",
+        approved: true,
+        text: "Rutina de movilidad y Abdomen",
       },
       {
-        approved: false,
-        text: "Planificación 100% personalizada",
-      },
-      {
-        approved: false,
-        text: "Asesoramiento nutricional",
+        approved: true,
+        text: "Cuaderno de entrenamiento para registrar tu progreso",
       },
     ],
   },
@@ -322,64 +209,34 @@ export const plans = [
     category: "avanzado",
     quantity: 5,
     price: 30000,
-    values: [
-      {
-        approved: true,
-        text: "Guia de pérdida de grasaa",
-      },
-      {
-        approved: true,
-        text: "Aumento de energía",
-      },
-      {
-        approved: true,
-        text: "Rutina para abdominales",
-      },
-      {
-        approved: true,
-        text: "Autoestima y confianza",
-      },
-      {
-        approved: true,
-        text: "Reducción de cintura",
-      },
-      {
-        approved: true,
-        text: "No tenés qué hacer horas de cardio interminables",
-      },
-    ],
     includes: [
       {
         approved: true,
-        text: "Planes de entrenamiento semanal (3 a 5 días)",
+        text: "Rutina de Hipertrofia para 5 días de entrenamiento semanal",
       },
       {
         approved: true,
-        text: "Guía de alimentación y consejos nutricionales",
+        text: "Planificación de 12 semanas de progreso (90 DÍAS)",
       },
       {
         approved: true,
-        text: "E-book “Guía definitiva de Pérdida de grasa” ",
+        text: "Ejemplos de ejercicios a través de enlaces a videos en YouTube",
       },
       {
         approved: true,
-        text: "+50 recetas fit",
+        text: "Guía de Alimentación + Recetario FIT (+50 RECETAS)",
       },
       {
         approved: true,
-        text: "Comunidad por WhatsApp",
+        text: "Video explicativo del PDF al 100%",
       },
       {
-        approved: false,
-        text: "Contacto vía WhatsApp 24hs",
+        approved: true,
+        text: "Rutina de movilidad y Abdomen",
       },
       {
-        approved: false,
-        text: "Planificación 100% personalizada",
-      },
-      {
-        approved: false,
-        text: "Asesoramiento nutricional",
+        approved: true,
+        text: "Cuaderno de entrenamiento para registrar tu progreso",
       },
     ],
   },

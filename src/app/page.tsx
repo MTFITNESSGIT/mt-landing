@@ -10,14 +10,18 @@ import Principal from "@/components/Principal";
 export default function Home() {
   return (
     <>
+      <div className="blob top-left"></div>
       <Principal />
       <Plans />
       <AdvicePage />
+      <div className="blob middle-left"></div>
       <ParagraphContainer />
       <Experience />
+      <div className="blob middle-right"></div>
       <FAQ />
       <DividerReady />
       <Certifications />
+      <div className="blob bottom-right"></div>
     </>
   );
 }

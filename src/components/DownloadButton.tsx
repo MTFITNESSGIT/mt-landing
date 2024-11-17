@@ -13,6 +13,7 @@ const DownloadFilesButton = ({
   paymentId,
   onProgress,
   progress,
+  folderName,
 }: IDownloadFilesButtonProps) => {
   const [buttonText, setButtonText] = useState("Descargar");
   const [loading, setLoading] = useState(false);
@@ -60,13 +61,13 @@ const DownloadFilesButton = ({
         // Calculate progress
         completedFiles += 1;
         const progress = (completedFiles / downloadUrls.length) * 100;
-        setButtonText(`Descargando: ${progress}%`);
         onProgress(progress);
+        setButtonText(`Descargando: ${progress}%`);
       })
     );
 
     const content = await zip.generateAsync({ type: "blob" });
-    saveAs(content, `${pathFile}.zip`);
+    saveAs(content, `${folderName}.zip`);
   };
 
   const handleDownloadFolder = async () => {

@@ -29,8 +29,8 @@
 body {
   background-color: #000;
   font-family: "Poppins", sans-serif;
+  position: relative;
   font-optical-sizing: auto;
-  /* max-width: "100vw"; */
 }
 
 @keyframes fade-out {

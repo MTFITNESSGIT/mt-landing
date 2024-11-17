@@ -25,6 +25,10 @@ const ThankYou = () => {
   const capitalizeCategory = capitalizeFirstLetter(category as string);
 
   const DownloadData = capitalizeType + capitalizeCategory;
+  const folderName =
+    type === "muscular"
+      ? "GanarMasa" + capitalizeType + capitalizeCategory
+      : "Perder" + capitalizeType + capitalizeCategory;
 
   console.log(DownloadData);
 
@@ -71,13 +75,13 @@ const ThankYou = () => {
           </div>
           <div className="flex-1 flex flex-col items-center justify-between h-full w-full gap-5">
             <div className="items-left">
-              <p className="text-xl text-black text-center">
+              <p className="text-xl xl:text-2xl text-black text-center">
                 Acá te dejo el link para que descargues
               </p>
               {loading ? (
                 <Skeleton className="w-full h-4" />
               ) : (
-                <p className="text-xl text-black text-center font-bold uppercase">
+                <p className="text-xl xl:text-2xl text-black text-center font-bold uppercase">
                   Plan {capitalizeType} nivel {capitalizeCategory}
                 </p>
               )}
@@ -148,6 +152,7 @@ const ThankYou = () => {
                         paymentId={paymentId as string}
                         onProgress={setProgress}
                         progress={progress}
+                        folderName={folderName}
                       />
                     </div>
 

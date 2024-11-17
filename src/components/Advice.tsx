@@ -95,7 +95,7 @@ const Advice = ({
           } rounded-3xl flex flex-col justify-evenly items-center gap-2`}
         >
           <div className="text-center">
-            <h3 className="text-2xl lg:text-3xl font-bold">{muscle.title}</h3>
+            <h3 className="text-2xl lg:text-3xl font-bold">{fat.title}</h3>
             <div className="flex flex-col">
               {discount && (
                 <div className="flex gap-2 w-full justify-center items-center my-1">
@@ -120,10 +120,9 @@ const Advice = ({
             </h3>
           </div>
           <div
-            className={`w-full h-[1px] ${
-              premium ? "bg-white" : "bg-[#5a5a5a]"
-            } my-2`}
-          ></div>{" "}
+            className={`w-full h-[1px]  bg-white
+      my-2`}
+          ></div>
           <div className="w-full h-full">
             {fat.values.map((value, i) => (
               <div className="flex justify-start items-center gap-2" key={i}>
