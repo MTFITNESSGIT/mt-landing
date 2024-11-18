@@ -18,7 +18,7 @@ const Principal = () => {
       <div className="flex flex-col justify-center items-center gap-4 md:mt-10">
         <Player
           src={
-            "https://firebasestorage.googleapis.com/v0/b/mtfitness-dd45d.appspot.com/o/presentacion.mp4?alt=media&token=8e9fc244-51fd-43d9-8c3a-64e2107d666d"
+            "https://firebasestorage.googleapis.com/v0/b/mtfitness-dd45d.appspot.com/o/presentacion.mp4?alt=media&token=b9b72f51-dc03-42c5-abac-d6d12cfa088d"
           }
         />
 
