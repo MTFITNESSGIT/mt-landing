@@ -1,5 +1,5 @@
 "use client";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 import React, { Suspense, useEffect, useState } from "react";
 
 interface VideoPlayerProps {
