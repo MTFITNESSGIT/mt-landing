@@ -27,7 +27,6 @@ const Player: React.FC<VideoPlayerProps> = ({ src }) => {
             playing
             height="auto"
             controls
-            playbackRate={1}
             muted
           />
         </div>
