@@ -29,7 +29,7 @@ export async function POST(request: Request) {
 
     try {
       await resend.emails.send({
-        from: "orders@yourdomain.com", // Update with your verified domain
+        from: "soporte@tomymedina.com", // Update with your verified domain
         to: "juansegundomartinez76@gmail.com",
         subject: "Payment Confirmation",
         html: `

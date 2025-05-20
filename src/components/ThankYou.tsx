@@ -3,8 +3,6 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-import axios from "axios";
-// import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
 import { capitalizeFirstLetter } from "@/utils/capitalLetter";
 import DownloadFilesButton from "./DownloadButton";
@@ -17,7 +15,7 @@ const ThankYou = () => {
   const paymentId = searchParams.get("payment_id");
   const adjustedType = type === "muscular" ? "Musculo" : type;
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [download, setDownload] = useState<number>(0);
   const [progress, setProgress] = useState(0);
 
@@ -33,21 +31,20 @@ const ThankYou = () => {
   console.log(DownloadData);
 
   useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
 
     if (!paymentId) return;
 
     const fetchPayment = async () => {
       try {
-        const { data } = await axios.get(
-          `/api/get-payment?paymentId=${paymentId}`
-        );
-        setDownload(data.download);
+        // const { data } = await axios.get(
+        //   `/api/get-payment?paymentId=${paymentId}`
+        // );
+        // setDownload(data.download);
       } catch (error) {
         console.error("Failed to fetch payment info", error);
-        router.replace("/404");
+        // router.replace("/404");
       } finally {
-        setLoading(false);
       }
     };
 
@@ -88,7 +85,7 @@ const ThankYou = () => {
             </div>
             <div className="flex flex-col justify-start w-full h-full gap-5 bg-gray-200 p-4 rounded-xl max-w-[500px]">
               <div className="flex justify-start w-full items-center gap-2">
-                <img src="/svgs/pdf.svg" alt="Icon" width={25} height={25} />
+                <Image src="/svgs/pdf.svg" alt="Icon" width={25} height={25} />
                 {loading ? (
                   <Skeleton className="w-full h-4" />
                 ) : (
@@ -147,8 +144,8 @@ const ThankYou = () => {
                     </div>
                     <div className="w-full max-w-[500px] lg:max-w-[350px]">
                       <DownloadFilesButton
-                        pathFile={DownloadData}
-                        download={download}
+                        pathFile={"MusculoAvanzado"}
+                        download={0}
                         paymentId={paymentId as string}
                         onProgress={setProgress}
                         progress={progress}
