@@ -1,5 +1,4 @@
 import MercadoPagoConfig, { Payment } from "mercadopago";
-import { revalidatePath } from "next/cache";
 import PaymentModel from "../../../models/Payment";
 import dbConnect from "../../../utils/mongodb";
 import { Resend } from "resend";

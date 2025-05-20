@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { Skeleton } from "@/components/ui/skeleton";
 import { capitalizeFirstLetter } from "@/utils/capitalLetter";
-import DownloadFilesButton from "./DownloadButton";
+// import DownloadFilesButton from "./DownloadButton";
 
 const ThankYou = () => {
   const searchParams = useSearchParams();
@@ -16,22 +16,21 @@ const ThankYou = () => {
   const adjustedType = type === "muscular" ? "Musculo" : type;
 
   const [loading, setLoading] = useState(false);
-  const [download, setDownload] = useState<number>(0);
-  const [progress, setProgress] = useState(0);
+  // const [progress, setProgress] = useState(0);
 
   const capitalizeType = capitalizeFirstLetter(adjustedType as string);
   const capitalizeCategory = capitalizeFirstLetter(category as string);
 
   const DownloadData = capitalizeType + capitalizeCategory;
-  const folderName =
-    type === "muscular"
-      ? "GanarMasaMuscular" + capitalizeCategory
-      : "Perder" + capitalizeType + capitalizeCategory;
+  // const folderName =
+  //   type === "muscular"
+  //     ? "GanarMasaMuscular" + capitalizeCategory
+  //     : "Perder" + capitalizeType + capitalizeCategory;
 
   console.log(DownloadData);
 
   useEffect(() => {
-    // setLoading(true);
+    setLoading(true);
 
     if (!paymentId) return;
 
@@ -128,7 +127,7 @@ const ThankYou = () => {
                 )}
               </div>
             </div>
-            {loading ? (
+            {/* {loading ? (
               <Skeleton className="w-full h-4" />
             ) : (
               <>
@@ -159,7 +158,7 @@ const ThankYou = () => {
                   </p>
                 )}
               </>
-            )}
+            )} */}
           </div>
         </div>
       </div>
