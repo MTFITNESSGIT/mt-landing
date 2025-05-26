@@ -29,20 +29,23 @@ export async function POST(request: Request) {
     try {
       await resend.emails.send({
         from: "soporte@tomymedina.com", // Update with your verified domain
-        to: "juansegundomartinez76@gmail.com",
+        to: "juansegundomartinez7@gmail.com",
         subject: "Payment Confirmation",
         html: `
-          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-            <h1 style="color: #333; text-align: center;">Payment Successful!</h1>
-            <div style="background-color: #f8f8f8; border-radius: 8px; padding: 20px; margin: 20px 0;">
-              <p style="margin: 10px 0;">Thank you for your purchase!</p>
-              <p style="margin: 10px 0;">Payment ID: ${body.data.id}</p>
-              <p style="margin: 10px 0;">Amount: $${payment.transaction_amount}</p>
-              <p style="margin: 10px 0;">Status: ${payment.status}</p>
-            </div>
-            <p style="text-align: center; color: #666;">If you have any questions, please contact our support team.</p>
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <img src="https://your-app.vercel.app/imgs/logo.webp" alt="Logo" style="max-width: 150px;" />
           </div>
-        `,
+          <h1 style="color: #333; text-align: center;">¡Pago Exitoso!</h1>
+          <div style="background-color: #f8f8f8; border-radius: 8px; padding: 20px; margin: 20px 0;">
+            <p style="margin: 10px 0;">¡Gracias por tu compra!</p>
+            <p style="margin: 10px 0;">ID de pago: ${body.data.id}</p>
+            <p style="margin: 10px 0;">Monto: $${payment.transaction_amount}</p>
+            <p style="margin: 10px 0;">Estado: ${payment.status}</p>
+          </div>
+          <p style="text-align: center; color: #666;">Si tienes alguna duda, contacta con nuestro equipo de soporte.</p>
+        </div>
+      `,
       });
       console.log("Confirmation email sent successfully");
     } catch (error) {
