@@ -13,8 +13,6 @@
 # testing
 /coverage
 
-/private/
-
 # next.js
 /.next/
 /out/
