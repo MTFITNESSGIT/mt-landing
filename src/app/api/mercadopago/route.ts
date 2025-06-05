@@ -2,9 +2,9 @@ import MercadoPagoConfig, { Payment } from "mercadopago";
 import PaymentModel from "../../../models/Payment";
 import dbConnect from "../../../utils/mongodb";
 import { Resend } from "resend";
-import { readdirSync, readFileSync } from "fs";
-import { join } from "path";
+
 import { getMimeType } from "@/utils/getMimeType";
+import { bucket } from "@/utils/firebaseBucket";
 
 const mercadopago = new MercadoPagoConfig({
   accessToken: process.env.MP_ACCESS_TOKEN!,
@@ -35,21 +35,25 @@ export async function POST(request: Request) {
         throw new Error("Missing plan type or category in payment metadata.");
       }
 
-      const folderPath = join(process.cwd(), "private", planType, planCategory);
+      const firebaseFolder = `MusculoPrincipiante`;
 
-      const filenames = readdirSync(folderPath);
+      const [files] = await bucket.getFiles({ prefix: firebaseFolder });
 
-      const attachments = filenames.map((filename) => {
-        const filePath = join(folderPath, filename);
-        const fileBuffer = readFileSync(filePath);
+      const pdfFiles = files.filter((file) => !file.name.endsWith("/"));
 
-        return {
-          filename,
-          content: fileBuffer.toString("base64"),
-          contentType: getMimeType(filename),
-          encoding: "base64",
-        };
-      });
+      const attachments = await Promise.all(
+        pdfFiles.map(async (file) => {
+          const [buffer] = await file.download();
+          const filename = file.name.split("/").pop() || "file.pdf";
+
+          return {
+            filename,
+            content: buffer.toString("base64"),
+            contentType: getMimeType(filename), // your util
+            encoding: "base64",
+          };
+        })
+      );
 
       await resend.emails.send({
         from: "soporte@tomymedina.com",
