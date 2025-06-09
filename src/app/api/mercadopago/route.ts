@@ -23,7 +23,17 @@ export async function POST(request: Request) {
       paymentId: body.data.id,
       status: payment.status,
       amount: payment.transaction_amount,
-      download: 0,
+      email: payment.payer?.email,
+      name:
+        payment.payer?.first_name && payment.payer?.last_name
+          ? payment.payer?.first_name + " " + payment.payer?.last_name
+          : undefined,
+      phone:
+        payment.payer?.phone?.area_code && payment.payer?.phone?.number
+          ? payment.payer.phone.area_code + payment.payer.phone.number
+          : undefined,
+      date_created: new Date(payment.date_created as string),
+      date_approved: new Date(payment.date_approved as string),
     });
     await newPayment.save();
 
@@ -60,18 +70,18 @@ export async function POST(request: Request) {
         to: "juansegundomartinez7@gmail.com",
         subject: "Payment Confirmation",
         html: `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <div style="text-align: center; margin-bottom: 20px;">
-            <img src="https://wwww.tomymedina.com/imgs/logo.webp" alt="Logo" style="max-width: 150px;" />
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+            <div style="text-align: center; margin-bottom: 20px;">
+              <img src="https://wwww.tomymedina.com/imgs/logo.webp" alt="Logo" style="max-width: 150px;" />
+            </div>
+            <h1 style="color: #333; text-align: center;">¡Pago Exitoso!</h1>
+            <div style="background-color: #f8f8f8; border-radius: 8px; padding: 20px; margin: 20px 0;">
+              <p style="margin: 10px 0;">¡Gracias por tu compra!</p>
+              <p style="margin: 10px 0;">Adjuntamos el plan${planType} - ${planCategory}</p>
+            </div>
+            <p style="text-align: center; color: #666;">Si tienes alguna duda, contacta con nuestro equipo de soporte.</p>
           </div>
-          <h1 style="color: #333; text-align: center;">¡Pago Exitoso!</h1>
-          <div style="background-color: #f8f8f8; border-radius: 8px; padding: 20px; margin: 20px 0;">
-            <p style="margin: 10px 0;">¡Gracias por tu compra!</p>
-            <p style="margin: 10px 0;">Adjuntamos el plan${planType} - ${planCategory}</p>  
-          </div>
-          <p style="text-align: center; color: #666;">Si tienes alguna duda, contacta con nuestro equipo de soporte.</p>
-        </div>
-      `,
+        `,
         attachments,
       });
       console.log("Confirmation email sent successfully");
@@ -80,7 +90,7 @@ export async function POST(request: Request) {
     }
 
     // revalidatePath("/");
-  }
 
-  return new Response(null, { status: 200 });
+    return new Response(null, { status: 200 });
+  }
 }
