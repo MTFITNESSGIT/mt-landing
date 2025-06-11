@@ -14,16 +14,18 @@ export async function POST(request: Request) {
 
   const body: { data: { id: string } } = await request.json();
 
-  // Early return to avoid Vercel 504 timeout
+  // Return early to avoid Vercel timeout
   const earlyResponse = new Response("OK", { status: 200 });
 
-  // Continue async logic in background
   process.nextTick(async () => {
     const resend = new Resend(process.env.RESEND_API_KEY);
     try {
       const payment = await new Payment(mercadopago).get({ id: body.data.id });
 
-      if (payment.status !== "approved") return;
+      if (payment.status !== "approved") {
+        console.log("Payment is not approved, exiting.");
+        return;
+      }
 
       // Check if payment already exists
       const existingPayment = await PaymentModel.findOne({
@@ -50,81 +52,82 @@ export async function POST(request: Request) {
         });
 
         await newPayment.save();
+        console.log("Payment saved to database.");
       } else {
-        console.log("Payment already recorded, skipping DB save.");
+        console.log("Payment already recorded.");
       }
 
-      // Check and send email if not already sent
       const paymentRecord =
         existingPayment ||
         (await PaymentModel.findOne({ paymentId: payment.id }));
+
       if (!paymentRecord?.emailSent) {
         const planType = payment.metadata?.plan?.type;
         const planCategory = payment.metadata?.plan?.category;
 
         if (!planType || !planCategory) {
-          throw new Error("Missing plan type or category in payment metadata.");
-        }
-
-        // 🔐 Safe Firebase file fetch
-        let attachments: any[] = [];
-        try {
-          const firebaseFolder = `MusculoPrincipiante`;
-          const [files] = await bucket.getFiles({ prefix: firebaseFolder });
-          const pdfFiles = files.filter((file) => !file.name.endsWith("/"));
-
-          attachments = await Promise.all(
-            pdfFiles.map(async (file) => {
-              const [buffer] = await file.download();
-              const filename = file.name.split("/").pop() || "file.pdf";
-              return {
-                filename,
-                content: buffer.toString("base64"),
-                contentType: getMimeType(filename),
-                encoding: "base64",
-              };
-            })
-          );
-        } catch (fileErr) {
-          console.error("❌ Error downloading files from Firebase:", fileErr);
-        }
-
-        if (attachments.length === 0) {
-          console.warn("⚠️ No attachments found — skipping email send.");
+          console.error("Missing plan metadata.");
           return;
         }
 
-        // ✅ Send confirmation email
-        await resend.emails.send({
-          from: "soporte@tomymedina.com",
-          to: payment.payer?.email || "juansegundomartinez7@gmail.com",
-          subject: "Payment Confirmation",
-          html: `
-            <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-              <div style="text-align: center; margin-bottom: 20px;">
-                <img src="https://www.tomymedina.com/imgs/logo.webp" alt="Logo" style="max-width: 150px;" />
-              </div>
-              <h1 style="color: #333; text-align: center;">¡Pago Exitoso!</h1>
-              <div style="background-color: #f8f8f8; border-radius: 8px; padding: 20px; margin: 20px 0;">
-                <p style="margin: 10px 0;">¡Gracias por tu compra!</p>
-                <p style="margin: 10px 0;">Adjuntamos el plan ${planType} - ${planCategory}</p>
-              </div>
-              <p style="text-align: center; color: #666;">Si tienes alguna duda, contacta con nuestro equipo de soporte.</p>
-            </div>
-          `,
-          attachments,
-        });
+        const firebaseFolder = `MusculoPrincipiante`;
+        const [files] = await bucket.getFiles({ prefix: firebaseFolder });
+        const pdfFiles = files.filter((file) => !file.name.endsWith("/"));
 
-        // ✅ Mark email as sent
-        paymentRecord.emailSent = true;
-        await paymentRecord.save();
+        console.log(
+          "✅ Firebase files:",
+          pdfFiles.map((f) => f.name)
+        );
 
-        console.log("✅ Confirmation email sent successfully");
+        const attachments = await Promise.all(
+          pdfFiles.map(async (file) => {
+            const [buffer] = await file.download();
+            const filename = file.name.split("/").pop() || "file.pdf";
+            return {
+              filename,
+              content: buffer.toString("base64"),
+              contentType: getMimeType(filename),
+              encoding: "base64",
+            };
+          })
+        );
+
+        console.log("📎 Attachments prepared:", attachments.length);
+
+        try {
+          const response = await resend.emails.send({
+            from: "soporte@tomymedina.com",
+            to: payment.payer?.email || "juansegundomartinez7@gmail.com",
+            subject: "Payment Confirmation",
+            html: `
+              <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+                <div style="text-align: center; margin-bottom: 20px;">
+                  <img src="https://www.tomymedina.com/imgs/logo.webp" alt="Logo" style="max-width: 150px;" />
+                </div>
+                <h1 style="color: #333; text-align: center;">¡Pago Exitoso!</h1>
+                <div style="background-color: #f8f8f8; border-radius: 8px; padding: 20px; margin: 20px 0;">
+                  <p style="margin: 10px 0;">¡Gracias por tu compra!</p>
+                  <p style="margin: 10px 0;">Adjuntamos el plan ${planType} - ${planCategory}</p>
+                </div>
+                <p style="text-align: center; color: #666;">Si tienes alguna duda, contacta con nuestro equipo de soporte.</p>
+              </div>
+            `,
+            attachments,
+          });
+
+          console.log("📧 Resend email response:", response);
+
+          paymentRecord.emailSent = true;
+          await paymentRecord.save();
+          console.log("✅ Email sent and DB updated.");
+        } catch (emailError) {
+          console.error("❌ Error sending email via Resend:", emailError);
+        }
       } else {
-        console.log("Email already sent, skipping.");
+        console.log("Email already sent.");
       }
     } catch (error) {
-      console.error("❌ Error handling MercadoPago webhook:", error);
+      console.error("❌ Error in MercadoPago webhook logic:", error);
     }
   });
 
