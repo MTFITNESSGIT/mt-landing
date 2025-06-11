@@ -17,13 +17,14 @@ export async function POST(request: Request) {
   // Return early to avoid Vercel timeout
   const earlyResponse = new Response("OK", { status: 200 });
 
-  process.nextTick(async () => {
+  void (async () => {
     const resend = new Resend(process.env.RESEND_API_KEY);
+
     try {
       const payment = await new Payment(mercadopago).get({ id: body.data.id });
 
       if (payment.status !== "approved") {
-        console.log("Payment is not approved, exiting.");
+        console.log("⛔ Payment is not approved, exiting.");
         return;
       }
 
@@ -52,9 +53,9 @@ export async function POST(request: Request) {
         });
 
         await newPayment.save();
-        console.log("Payment saved to database.");
+        console.log("💾 Payment saved to database.");
       } else {
-        console.log("Payment already recorded.");
+        console.log("ℹ️ Payment already recorded.");
       }
 
       const paymentRecord =
@@ -66,7 +67,7 @@ export async function POST(request: Request) {
         const planCategory = payment.metadata?.plan?.category;
 
         if (!planType || !planCategory) {
-          console.error("Missing plan metadata.");
+          console.error("❌ Missing plan metadata.");
           return;
         }
 
@@ -92,13 +93,16 @@ export async function POST(request: Request) {
           })
         );
 
-        console.log("📎 Attachments prepared:", attachments.length);
+        if (attachments.length === 0) {
+          console.error("❌ No files found for attachments. Aborting email.");
+          return;
+        }
 
         try {
-          const response = await resend.emails.send({
+          const result = await resend.emails.send({
             from: "soporte@tomymedina.com",
             to: payment.payer?.email || "juansegundomartinez7@gmail.com",
-            subject: "Payment Confirmation",
+            subject: "Pago Exitoso",
             html: `
               <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
                 <div style="text-align: center; margin-bottom: 20px;">
@@ -115,7 +119,7 @@ export async function POST(request: Request) {
             attachments,
           });
 
-          console.log("📧 Resend email response:", response);
+          console.log("📧 Resend response:", result);
 
           paymentRecord.emailSent = true;
           await paymentRecord.save();
@@ -124,12 +128,12 @@ export async function POST(request: Request) {
           console.error("❌ Error sending email via Resend:", emailError);
         }
       } else {
-        console.log("Email already sent.");
+        console.log("📨 Email already sent.");
       }
     } catch (error) {
       console.error("❌ Error in MercadoPago webhook logic:", error);
     }
-  });
+  })();
 
   return earlyResponse;
 }
