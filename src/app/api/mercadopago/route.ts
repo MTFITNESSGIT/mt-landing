@@ -14,13 +14,19 @@ export async function POST(request: Request) {
 
   const body: { data: { id: string } } = await request.json();
 
-  // Return early to avoid Vercel timeout
-  const earlyResponse = new Response("OK", { status: 200 });
-
   void (async () => {
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     try {
+      await resend.emails.send({
+        from: "soporte@tomymedina.com",
+        to: "juansegundomartinez7@gmail.com",
+        subject: "Pago Exitoso",
+        html: `
+              Test
+            `,
+      });
+
       const payment = await new Payment(mercadopago).get({ id: body.data.id });
 
       if (payment.status !== "approved") {
@@ -134,6 +140,4 @@ export async function POST(request: Request) {
       console.error("❌ Error in MercadoPago webhook logic:", error);
     }
   })();
-
-  return earlyResponse;
 }
