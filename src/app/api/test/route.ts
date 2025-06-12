@@ -8,12 +8,12 @@ export async function POST() {
 
   const firebaseFolder = `MusculoPrincipiante`;
   const [files] = await bucket.getFiles({ prefix: firebaseFolder });
-  const pdfFiles = files.filter((file) => !file.name.endsWith("/"));
 
-  console.log(
-    "✅ Firebase files:",
-    pdfFiles.map((f) => f.name)
-  );
+  console.log(files, "✅ Files");
+
+  const targetFilename =
+    "MusculoPrincipiante/PLAN HIPERTROFIA - PRINCIPIANTES .pdf";
+  const pdfFiles = files.filter((file) => file.name === targetFilename);
 
   const attachments = await Promise.all(
     pdfFiles.map(async (file) => {
@@ -32,8 +32,6 @@ export async function POST() {
     console.error("❌ No files found for attachments. Aborting email.");
     return;
   }
-
-  console.log(attachments, "✅ Attachments");
 
   try {
     await resend.emails.send({
