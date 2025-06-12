@@ -12,7 +12,7 @@ export async function POST() {
   console.log(files, "✅ Files");
 
   const targetFilename =
-    "MusculoPrincipiante/PLAN HIPERTROFIA - PRINCIPIANTES .pdf";
+    "MusculoPrincipiante/PLAN HIPERTROFIA - PRINCIPIANTES.pdf";
   const pdfFiles = files.filter((file) => file.name === targetFilename);
 
   const attachments = await Promise.all(
