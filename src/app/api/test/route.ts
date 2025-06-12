@@ -45,7 +45,7 @@ export async function POST() {
     `;
 
     try {
-      const to = "juansegundomartinez7@gmail.com"; // fallback
+      const to = "mtfitness0@gmail.com"; // fallback
       const response = await resend.emails.send({
         from: "soporte@tomymedina.com",
         to,
