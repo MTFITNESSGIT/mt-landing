@@ -11,9 +11,7 @@ export async function POST() {
 
   console.log(files, "✅ Files");
 
-  const targetFilename =
-    "MusculoPrincipiante/PLAN HIPERTROFIA - PRINCIPIANTES.pdf";
-  const pdfFiles = files.filter((file) => file.name === targetFilename);
+  const pdfFiles = files.filter((file) => !file.name.endsWith("/"));
 
   const attachments = await Promise.all(
     pdfFiles.map(async (file) => {
@@ -40,7 +38,7 @@ export async function POST() {
       subject: "Pago Exitoso",
       html: `
               <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-                <div style="text-align: center; margin-bottom: 20px;">
+                <div style="text-align: center; margin-bottom: 20px; background-color: ##000; border-radius: 8px; padding: 20px;">
                   <img src="https://www.tomymedina.com/imgs/logo.webp" alt="Logo" style="max-width: 150px;" />
                 </div>
                 <h1 style="color: #333; text-align: center;">¡Pago Exitoso!</h1>
