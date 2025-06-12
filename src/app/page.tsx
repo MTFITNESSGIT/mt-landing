@@ -1,3 +1,4 @@
+"use client";
 import AdvicePage from "@/components/AdvicePage";
 import Certifications from "@/components/Certifications";
 import DividerReady from "@/components/DividerReady";
@@ -9,8 +10,27 @@ import Principal from "@/components/Principal";
 import Whatsapp from "@/components/Whatsapp";
 
 export default function Home() {
+  const testPostRequest = async () => {
+    try {
+      const res = await fetch("/api/test", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ testData: "Hello API" }),
+      });
+
+      const data = await res.json();
+
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <>
+      <button onClick={testPostRequest}>Test POST Request</button>
+
       <Principal />
       <Plans />
       <AdvicePage />
