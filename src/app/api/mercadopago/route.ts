@@ -98,16 +98,32 @@ export async function POST(request: Request) {
       to: "juansegundomartinez7@gmail.com",
       subject: "Pago Exitoso",
       html: `
-             <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: black;">
-                <div style="text-align: center; margin-bottom: 20px; backgro">
-                  <img src="https://www.tomymedina.com/imgs/logo.png" alt="Logo" style="max-width: 150px;" />
-                </div>
-                <h1 style="color: #da0504cc; text-align: center;">¡Muchas gracias!</h1>
-                <div style="background-color: #f8f8f8; border-radius: 8px; padding: 20px; margin: 20px 0; display: flex; flex-direction: column; justify-content: center; align-items: center">
-                  <p style="margin: 10px 0;">¡Gracias por tu compra!</p>
-                  <p style="margin: 10px 0;">Adjuntamos el plan ${payment.metadata.title}</p>
-                </div>
-              </div>
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 30px; background-color: #000000; border-radius: 10px;">
+  <div style="text-align: center; margin-bottom: 30px;">
+    <img src="https://www.tomymedina.com/imgs/logo.png" alt="Logo" style="max-width: 140px;" />
+  </div>
+
+  <h1 style="color: #ff4d4d; text-align: center; font-size: 28px; margin-bottom: 20px;">
+    ¡Muchas gracias por tu compra!
+  </h1>
+
+  <div style="background-color: #1a1a1a; border-radius: 8px; padding: 20px; text-align: center;">
+    <p style="margin: 10px 0; font-size: 16px; color: #ffffff;">
+      Te agradezco por confiar en mí para acompañarte en tu proceso de entrenamiento.
+    </p>
+    <p style="margin: 10px 0; font-size: 16px; color: #ffffff;">
+      Te adjunto el plan <strong>${payment.metadata.title}</strong>
+    </p>
+    <p style="margin: 10px 0; font-size: 14px; color: #cccccc;">
+      Cualquier duda que tengas, no dudes en escribirme. ¡Estoy para ayudarte!
+    </p>
+  </div>
+
+   <p style="text-align: center; font-size: 12px; color: #777777; margin-top: 30px;">
+    © 2025 Tomy Medina | Todos los derechos reservados
+  </p>
+</div>
+
             `,
       attachments,
     });
