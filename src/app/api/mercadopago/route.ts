@@ -122,7 +122,7 @@ export async function POST(request: Request) {
                       Te agradezco por confiar en mí para acompañarte en tu proceso de entrenamiento.
                     </p>
                     <p style="margin: 10px 0; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">
-                      Te adjunto el plan <strong>${payment.metadata.title}</strong>
+                      Te adjunto el plan <strong>${payment.metadata.title} Nivel ${payment.metadata.category}</strong>
                     </p>
                     <p style="margin: 10px 0; font-size: 14px; color: #cccccc; font-family: Arial, sans-serif;">
                       Cualquier duda que tengas, no dudes en escribirme. ¡Estoy para ayudarte!
