@@ -5,7 +5,11 @@ export const mercadopago = new MercadoPagoConfig({
   accessToken: process.env.MP_ACCESS_TOKEN!,
 });
 
+const capitalize = (str?: string) =>
+  str ? str.charAt(0).toUpperCase() + str.slice(1) : "";
+
 export const MercadoPagoLink = async (plan: TPlan) => {
+  const firebaseFolder = `${plan?.type === "Muscular" ? "Musculo" : "Grasa"}${capitalize(plan?.category)}`;
   const preference = await new Preference(mercadopago).create({
     body: {
       items: [
@@ -17,11 +21,11 @@ export const MercadoPagoLink = async (plan: TPlan) => {
         },
       ],
       metadata: {
-        plan,
+        firebaseFolder,
       },
       auto_return: "approved",
       back_urls: {
-        success: `https://www.tomymedina.com/thank-you?type=${plan.type}&category=${plan.category}`,
+        success: `https://www.tomymedina.com/thank-you`,
       },
     },
   });

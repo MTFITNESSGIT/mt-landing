@@ -1,37 +1,34 @@
 "use client";
-import ReactPlayer from "react-player/lazy";
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useState } from "react";
 
 interface VideoPlayerProps {
   src: string;
 }
 
 const Player: React.FC<VideoPlayerProps> = ({ src }) => {
-  const [hasWindow, setHasWindow] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setHasWindow(true);
-    }
-  }, []);
+  console.log(isLoaded);
 
   return (
-    <Suspense fallback={<p>Loading feed...</p>}>
-      {hasWindow && (
-        <div className="rounded-[30px]">
-          <ReactPlayer
-            className={`rounded-[60px] w-full h-full max-w-[1030px] max-h-[1200px] `}
-            url={src}
-            width="100%"
-            loop
-            playing
-            height="auto"
-            controls
-            muted
-          />
-        </div>
+    <div className="w-full min-w-[320px] max-w-[1030px]">
+      {!isLoaded && (
+        <div className="w-full rounded-[30px] min-w-[300px] sm:min-w-[500px] md:min-w-[700px] lg:min-w-[900px] xl:min-w-[1000px] max-w-[1030px] h-[530px] bg-neutral-800 animate-pulse border border-neutral-700 shadow-md" />
       )}
-    </Suspense>
+
+      <video
+        src={src}
+        className={`rounded-[30px] w-full h-auto transition-opacity duration-300 ${
+          isLoaded ? "opacity-100" : "opacity-0 absolute"
+        }`}
+        onCanPlayThrough={() => setIsLoaded(true)}
+        autoPlay
+        loop
+        muted
+        playsInline
+        controls
+      />
+    </div>
   );
 };
 

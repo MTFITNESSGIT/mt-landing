@@ -22,7 +22,7 @@ const Plan: React.FC<TPlan> = ({
         pathname: "/checkout",
         query: {
           plan: title.toLowerCase(),
-          level: category && category.toLowerCase(),
+          category: category && category.toLowerCase(),
         },
       }}
     >
