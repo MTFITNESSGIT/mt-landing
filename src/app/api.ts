@@ -22,6 +22,7 @@ export const MercadoPagoLink = async (plan: TPlan) => {
       ],
       metadata: {
         firebaseFolder,
+        title: plan.title,
       },
       auto_return: "approved",
       back_urls: {

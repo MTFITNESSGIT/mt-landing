@@ -98,14 +98,14 @@ export async function POST(request: Request) {
       to: "juansegundomartinez7@gmail.com",
       subject: "Pago Exitoso",
       html: `
-              <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-                <div style="text-align: center; margin-bottom: 20px;">
-                  <img src="https://www.tomymedina.com/imgs/logo.webp" alt="Logo" style="max-width: 150px;" />
+             <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: black;">
+                <div style="text-align: center; margin-bottom: 20px; backgro">
+                  <img src="https://www.tomymedina.com/imgs/logo.png" alt="Logo" style="max-width: 150px;" />
                 </div>
-                <h1 style="color: #333; text-align: center;">¡Pago Exitoso!</h1>
-                <div style="background-color: #f8f8f8; border-radius: 8px; padding: 20px; margin: 20px 0;">
+                <h1 style="color: #da0504cc; text-align: center;">¡Muchas gracias!</h1>
+                <div style="background-color: #f8f8f8; border-radius: 8px; padding: 20px; margin: 20px 0; display: flex; flex-direction: column; justify-content: center; align-items: center">
                   <p style="margin: 10px 0;">¡Gracias por tu compra!</p>
-                  <p style="margin: 10px 0;">Adjuntamos el plan </p>
+                  <p style="margin: 10px 0;">Adjuntamos el plan ${payment.metadata.title}</p>
                 </div>
               </div>
             `,
