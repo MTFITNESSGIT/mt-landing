@@ -48,6 +48,9 @@ export async function POST(request: Request) {
           payment.payer?.phone?.area_code && payment.payer?.phone?.number
             ? payment.payer.phone.area_code + payment.payer.phone.number
             : undefined,
+        title: payment.metadata.title,
+        category: payment.metadata.category,
+        firebase_folder: payment.metadata.firebase_folder,
         date_created: new Date(payment.date_created as string),
         date_approved: new Date(payment.date_approved as string),
       });
@@ -57,10 +60,6 @@ export async function POST(request: Request) {
     } else {
       console.log("ℹ️ Payment already recorded.");
     }
-
-    const paymentRecord =
-      existingPayment ||
-      (await PaymentModel.findOne({ paymentId: payment.id }));
 
     const firebaseFolder = payment.metadata.firebase_folder || "";
 
@@ -79,8 +78,6 @@ export async function POST(request: Request) {
         };
       })
     );
-
-    console.log(firebaseFolder);
 
     if (attachments.length === 0) {
       console.error("❌ No files found for attachments. Aborting email.");
@@ -111,7 +108,7 @@ export async function POST(request: Request) {
                 </tr>
                 <tr>
                   <td>
-                    <h1 style="color: #ff4d4d; text-align: center; font-size: 28px; margin-bottom: 20px; font-family: Arial, sans-serif;">
+                    <h1 style="color: #da0504cc; text-align: center; font-size: 28px; margin-bottom: 20px; font-family: Arial, sans-serif;">
                       ¡Muchas gracias por tu compra!
                     </h1>
                   </td>
@@ -122,7 +119,7 @@ export async function POST(request: Request) {
                       Te agradezco por confiar en mí para acompañarte en tu proceso de entrenamiento.
                     </p>
                     <p style="margin: 10px 0; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">
-                      Te adjunto el plan <strong>${payment.metadata.title} Nivel ${payment.metadata.category}</strong>
+                      Te adjunto el plan <strong>${payment.metadata.title} - ${payment.metadata.category.toUpperCase()}</strong>
                     </p>
                     <p style="margin: 10px 0; font-size: 14px; color: #cccccc; font-family: Arial, sans-serif;">
                       Cualquier duda que tengas, no dudes en escribirme. ¡Estoy para ayudarte!
@@ -144,9 +141,6 @@ export async function POST(request: Request) {
             `,
       attachments,
     });
-
-    paymentRecord.emailSent = true;
-    await paymentRecord.save();
 
     return NextResponse.json({
       message: "Emails processed",

@@ -18,9 +18,15 @@ interface PaymentTableProps {
   data: any[];
   isLoading: boolean;
   error: Error | null;
+  onSendPlan: (paymentId: string) => Promise<void>;
 }
 
-export const PaymentTable = ({ data, isLoading, error }: PaymentTableProps) => {
+export const PaymentTable = ({
+  data,
+  isLoading,
+  error,
+  onSendPlan,
+}: PaymentTableProps) => {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
@@ -42,6 +48,9 @@ export const PaymentTable = ({ data, isLoading, error }: PaymentTableProps) => {
       columnFilters,
       columnVisibility,
       rowSelection,
+    },
+    meta: {
+      onSendPlan,
     },
   });
 

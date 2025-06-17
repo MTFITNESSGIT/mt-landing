@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 
 import { Oswald } from "next/font/google";
 import { Providers } from "./providers";
+import { Toaster } from "@/components/ui/sonner";
 
 const oswald = Oswald({ subsets: ["latin"] });
 
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Header />
         <main className="flex w-full flex-col items-center justify-between text-white blob-background">
           <Providers>{children}</Providers>
+          <Toaster />
         </main>
         <Footer />
       </body>

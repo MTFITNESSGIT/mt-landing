@@ -5,6 +5,10 @@ import { Button } from "../ui/button";
 import Chip from "../chip";
 import { IColumns } from "@/types/payments.types";
 
+interface CustomTableMeta {
+  onSendPlan: (paymentId: string) => void;
+}
+
 export const Columns: ColumnDef<IColumns>[] = [
   {
     id: "paymentId",
@@ -57,10 +61,21 @@ export const Columns: ColumnDef<IColumns>[] = [
   {
     id: "actions",
     header: "Acciones",
-    cell: () => {
+    cell: ({ row, table }) => {
+      const paymentId = row.original.paymentId;
+
+      console.log(table.options.meta);
+
       return (
         <div onClick={(e) => e.stopPropagation()}>
-          <Button size="sm">Enviar Plan</Button>
+          <Button
+            size="sm"
+            onClick={() =>
+              (table.options.meta as CustomTableMeta).onSendPlan(paymentId)
+            }
+          >
+            Enviar Plan
+          </Button>
         </div>
       );
     },

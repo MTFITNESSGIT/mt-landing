@@ -10,11 +10,24 @@ import {
   PaginationNext,
 } from "@/components/ui/pagination";
 import { useUsers } from "@/hooks/usePayments";
+import { sendPlanRequest } from "@/utils/sendPlanRequest";
 import { LogOut } from "lucide-react";
 import React from "react";
+import { toast } from "sonner";
 
 const Dashboard = () => {
   const { data, isLoading, page, setPage, totalPages, error } = useUsers();
+
+  const handleSendPlan = async (paymentId: string) => {
+    try {
+      await sendPlanRequest(paymentId);
+      toast.success("El plan ha sido enviado exitosamente.");
+    } catch (error) {
+      toast.error("Hubo un problema al enviar el plan.");
+
+      console.error(error);
+    }
+  };
 
   return (
     <div className="min-h-screen w-full bg-gray-50">
@@ -22,8 +35,6 @@ const Dashboard = () => {
       <nav className="text-black shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            {/* Greeting Section */}
-
             {/* Exit Button */}
             <Button
               variant="outline"
@@ -37,9 +48,14 @@ const Dashboard = () => {
       </nav>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto py-6 ">
+      <main className="max-w-7xl mx-auto py-6">
         <div className="bg-white rounded-md shadow-sm p-4 w-full">
-          <PaymentTable data={data} isLoading={isLoading} error={error} />
+          <PaymentTable
+            data={data}
+            isLoading={isLoading}
+            error={error}
+            onSendPlan={handleSendPlan} // Pass down the function to the table
+          />
         </div>
 
         {!isLoading && data && totalPages > 1 && (
