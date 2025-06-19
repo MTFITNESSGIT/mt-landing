@@ -1,7 +1,5 @@
 // utils/sendPlanRequest.ts
 export const sendPlanRequest = async (paymentId: string) => {
-  console.log(paymentId, "paymentId sendPlan");
-
   const response = await fetch(`/api/resend`, {
     method: "POST",
     headers: {

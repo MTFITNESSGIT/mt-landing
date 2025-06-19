@@ -63,9 +63,6 @@ export const Columns: ColumnDef<IColumns>[] = [
     header: "Acciones",
     cell: ({ row, table }) => {
       const paymentId = row.original.paymentId;
-
-      console.log(table.options.meta);
-
       return (
         <div onClick={(e) => e.stopPropagation()}>
           <Button

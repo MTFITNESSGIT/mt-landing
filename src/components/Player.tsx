@@ -8,8 +8,6 @@ interface VideoPlayerProps {
 const Player: React.FC<VideoPlayerProps> = ({ src }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
-  console.log(isLoaded);
-
   return (
     <div className="w-full min-w-[320px] max-w-[1030px]">
       {!isLoaded && (

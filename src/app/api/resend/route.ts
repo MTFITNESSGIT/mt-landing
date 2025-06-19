@@ -9,8 +9,6 @@ export async function POST(request: Request) {
   await dbConnect();
 
   const body = await request.json();
-
-  // Send fast response first
   const response = NextResponse.json(
     { message: "Email process started" },
     { status: 200 }
@@ -30,7 +28,7 @@ export async function POST(request: Request) {
         return;
       }
 
-      const firebaseFolder = paymentRecord.plan_name || "";
+      const firebaseFolder = paymentRecord.firebase_folder || "";
 
       const [files] = await bucket.getFiles({ prefix: firebaseFolder });
       const pdfFiles = files.filter((file) => !file.name.endsWith("/"));
@@ -56,7 +54,7 @@ export async function POST(request: Request) {
       await resend.emails.send({
         from: "soporte@tomymedina.com",
         to: "juansegundomartinez7@gmail.com",
-        subject: "Pago Exitoso",
+        subject: "Renvio de plan",
         html: `
         <html>
           <body style="margin: 0; padding: 0; background-color: #000000;" bgcolor="#000000">
@@ -82,7 +80,7 @@ export async function POST(request: Request) {
                           Te agradezco por confiar en mí para acompañarte en tu proceso de entrenamiento.
                         </p>
                         <p style="margin: 10px 0; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">
-                          Te adjunto el plan <strong>${paymentRecord.plan_name} - ${paymentRecord.category.toUpperCase()}</strong>
+                          Te adjunto el plan <strong>${paymentRecord.title} - ${paymentRecord.category.toUpperCase()}</strong>
                         </p>
                         <p style="margin: 10px 0; font-size: 14px; color: #cccccc; font-family: Arial, sans-serif;">
                           Cualquier duda que tengas, no dudes en escribirme. ¡Estoy para ayudarte!
