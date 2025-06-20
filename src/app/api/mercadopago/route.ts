@@ -41,13 +41,13 @@ export async function POST(request: Request) {
         amount: payment.transaction_amount,
         email: payment.payer?.email,
         name:
-          payment.payer?.first_name && payment.payer?.last_name
-            ? `${payment.payer.first_name} ${payment.payer.last_name}`
-            : undefined,
+          [payment.payer?.first_name, payment.payer?.last_name]
+            .filter(Boolean)
+            .join(" ") || undefined,
         phone:
-          payment.payer?.phone?.area_code && payment.payer?.phone?.number
-            ? payment.payer.phone.area_code + payment.payer.phone.number
-            : undefined,
+          [payment.payer?.phone?.area_code, payment.payer?.phone?.number]
+            .filter(Boolean)
+            .join("") || undefined,
         title: payment.metadata.title,
         category: payment.metadata.category,
         firebase_folder: payment.metadata.firebase_folder,
