@@ -91,8 +91,7 @@ export async function POST(request: Request) {
 
     await resend.emails.send({
       from: "soporte@tomymedina.com",
-      // to: payment.payer?.email || "",
-      to: "juansegundomartinez7@gmail.com",
+      to: payment.payer?.email || "",
       subject: "Pago Exitoso",
       html: `
               <html>

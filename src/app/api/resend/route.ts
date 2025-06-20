@@ -53,7 +53,7 @@ export async function POST(request: Request) {
 
       await resend.emails.send({
         from: "soporte@tomymedina.com",
-        to: "juansegundomartinez7@gmail.com",
+        to: paymentRecord.email,
         subject: "Renvio de plan",
         html: `
         <html>
