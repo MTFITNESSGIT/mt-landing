@@ -90,7 +90,7 @@ export async function POST(request: Request) {
     }
     await resend.emails.send({
       from: "soporte@tomymedina.com",
-      to: payment.payer?.email || "juansegundomartinez7@gmail.com",
+      to: payment.payer?.email as string,
       subject: "Pago Exitoso",
       html: `
     <html>
@@ -106,7 +106,7 @@ export async function POST(request: Request) {
                 </tr>
                 <tr>
                   <td>
-                    <h1 style="color: #da0504; text-align: center; font-size: 28px; margin-bottom: 20px; font-family: Arial, sans-serif;">
+                    <h1 style="color: rgb(220, 6, 5); text-align: center; font-size: 28px; margin-bottom: 20px; font-family: Arial, sans-serif;">
                       ¡Muchas gracias por tu compra!
                     </h1>
                   </td>
