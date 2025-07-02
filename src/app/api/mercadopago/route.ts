@@ -88,18 +88,17 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
-
     await resend.emails.send({
       from: "soporte@tomymedina.com",
-      to: payment.payer?.email || "",
+      to: payment.payer?.email || "juansegundomartinez7@gmail.com",
       subject: "Pago Exitoso",
       html: `
-              <html>
+    <html>
       <body style="margin: 0; padding: 0; background-color: #000000;" bgcolor="#000000">
-        <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" bgcolor="#000000" style="background-color: #000000; width: 100%;">
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" bgcolor="#000000" style="background-color: #000000; width: 100%;">
           <tr>
-            <td align="center">
-              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #000000; padding: 30px; border-radius: 10px;">
+            <td align="center" bgcolor="#000000" style="background-color: #000000;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="width: 100%; max-width: 600px; background-color: #000000; padding: 30px; border-radius: 10px;" bgcolor="#000000">
                 <tr>
                   <td align="center" style="padding-bottom: 30px;">
                     <img src="https://www.tomymedina.com/imgs/logo.png" alt="Logo" style="max-width: 140px;" />
@@ -107,13 +106,13 @@ export async function POST(request: Request) {
                 </tr>
                 <tr>
                   <td>
-                    <h1 style="color: #da0504cc; text-align: center; font-size: 28px; margin-bottom: 20px; font-family: Arial, sans-serif;">
+                    <h1 style="color: #da0504; text-align: center; font-size: 28px; margin-bottom: 20px; font-family: Arial, sans-serif;">
                       ¡Muchas gracias por tu compra!
                     </h1>
                   </td>
                 </tr>
                 <tr>
-                  <td style="background-color: #1a1a1a; border-radius: 8px; padding: 20px; text-align: center;">
+                  <td bgcolor="#1a1a1a" style="background-color: #1a1a1a; border-radius: 8px; padding: 20px; text-align: center;">
                     <p style="margin: 10px 0; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">
                       Te agradezco por confiar en mí para acompañarte en tu proceso de entrenamiento.
                     </p>
@@ -136,8 +135,7 @@ export async function POST(request: Request) {
         </table>
       </body>
     </html>
-
-            `,
+  `,
       attachments,
     });
 

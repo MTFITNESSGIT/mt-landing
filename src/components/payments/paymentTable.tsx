@@ -10,7 +10,7 @@ import {
   ColumnFiltersState,
   SortingState,
 } from "@tanstack/react-table";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DataTable } from "./data-table";
 import { Columns } from "./columns";
 
@@ -19,6 +19,7 @@ interface PaymentTableProps {
   isLoading: boolean;
   error: Error | null;
   onSendPlan: (paymentId: string) => Promise<void>;
+  search: string;
 }
 
 export const PaymentTable = ({
@@ -26,6 +27,7 @@ export const PaymentTable = ({
   isLoading,
   error,
   onSendPlan,
+  search,
 }: PaymentTableProps) => {
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
@@ -53,6 +55,10 @@ export const PaymentTable = ({
       onSendPlan,
     },
   });
+
+  useEffect(() => {
+    table.getColumn("email")?.setFilterValue(search);
+  }, [search, table]);
 
   return (
     <DataTable

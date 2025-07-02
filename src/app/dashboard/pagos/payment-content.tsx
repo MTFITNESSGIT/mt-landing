@@ -2,6 +2,7 @@
 
 import { PaymentTable } from "@/components/payments/paymentTable";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Pagination,
   PaginationContent,
@@ -15,10 +16,12 @@ import { useUsers } from "@/hooks/usePayments";
 import { sendPlanRequest } from "@/utils/sendPlanRequest";
 import { ArrowLeft, CreditCard } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 import { toast } from "sonner";
 
 function PaymentsContent() {
   const { data, isLoading, page, setPage, totalPages, error } = useUsers();
+  const [search, setSearch] = useState("");
 
   const handleSendPlan = async (paymentId: string) => {
     try {
@@ -66,12 +69,23 @@ function PaymentsContent() {
           </p>
         </div>
 
+        <div className="mb-4">
+          <Input
+            type="text"
+            placeholder="Buscar por email"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="max-w-md text-black"
+          />
+        </div>
+
         <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border border-gray-200 p-6">
           <PaymentTable
             data={data}
             isLoading={isLoading}
             error={error}
             onSendPlan={handleSendPlan}
+            search={search}
           />
         </div>
 

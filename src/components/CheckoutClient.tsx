@@ -95,6 +95,11 @@ const CheckoutClient: React.FC = () => {
             </>
           )}
         </button>
+        <p className="text-sm text-center text-gray-500 w-full max-w-[400px]">
+          * Podés pagar con tarjeta de crédito o débito sin necesidad de tener
+          una cuenta de Mercado Pago. Solo hacé clic en el botón para continuar
+          con el pago.
+        </p>
         <div className="w-[300px] h-[3px] bg-gray-200"></div>
       </div>
     </section>

@@ -7,7 +7,7 @@ export const advices: TProgram[] = [
     customized: false,
     muscle: {
       title: "GANAR MASA MUSCULAR",
-      newPrice: "39.999",
+      newPrice: "39.990",
       values: [
         {
           approved: true,
@@ -99,7 +99,7 @@ export const advices: TProgram[] = [
     },
     fat: {
       title: "PERDER TEJIDO ADIPOSO",
-      newPrice: "39.999",
+      newPrice: "39.990",
       values: [
         {
           approved: true,
@@ -195,9 +195,9 @@ export const advices: TProgram[] = [
     title: "ASESORÍA PERSONALIZADA💪🏼",
     premium: false,
     customized: true,
-    discount: "17",
+    discount: "20",
     muscle: {
-      newPrice: "82.999",
+      newPrice: "79.990",
       oldPrice: "100.000",
       title: "GANAR MASA MUSCULAR",
       values: [
@@ -291,7 +291,7 @@ export const advices: TProgram[] = [
     },
     fat: {
       title: "PERDER TEJIDO ADIPOSO",
-      newPrice: "82.999",
+      newPrice: "79.990",
       oldPrice: "100.000",
       values: [
         {
@@ -387,7 +387,7 @@ export const advices: TProgram[] = [
     title: "ASESORÍA PREMIUM💎",
     premium: true,
     customized: false,
-    discount: "25",
+    discount: "16",
     muscle: {
       newPrice: "150",
       oldPrice: "180",

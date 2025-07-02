@@ -56,7 +56,9 @@ const Plan: React.FC<TPlan> = ({
         <p className="text-xl md:text-base font-semibold mt-3 uppercase">
           RUTINA {title} {category}
         </p>
-        <p className="text-2xl font-extrabold m-0">$ {price}</p>
+        <p className="text-2xl font-extrabold m-0">
+          $ {price && price.toLocaleString("es-AR")}
+        </p>
       </div>
     </Link>
   );

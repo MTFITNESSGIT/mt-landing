@@ -56,48 +56,48 @@ export async function POST(request: Request) {
         to: paymentRecord.email,
         subject: "Renvio de plan",
         html: `
-        <html>
-          <body style="margin: 0; padding: 0; background-color: #000000;" bgcolor="#000000">
-            <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" bgcolor="#000000" style="background-color: #000000; width: 100%;">
-              <tr>
-                <td align="center">
-                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #000000; padding: 30px; border-radius: 10px;">
-                    <tr>
-                      <td align="center" style="padding-bottom: 30px;">
-                        <img src="https://www.tomymedina.com/imgs/logo.png" alt="Logo" style="max-width: 140px;" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <h1 style="color: #da0504cc44567890; text-align: center; font-size: 28px; margin-bottom: 20px; font-family: Arial, sans-serif;">
-                          ¡Muchas gracias por tu compra!
-                        </h1>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="background-color: #1a1a1a; border-radius: 8px; padding: 20px; text-align: center;">
-                        <p style="margin: 10px 0; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">
-                          Te agradezco por confiar en mí para acompañarte en tu proceso de entrenamiento.
-                        </p>
-                        <p style="margin: 10px 0; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">
-                          Te adjunto el plan <strong>${paymentRecord.title} - ${paymentRecord.category.toUpperCase()}</strong>
-                        </p>
-                        <p style="margin: 10px 0; font-size: 14px; color: #cccccc; font-family: Arial, sans-serif;">
-                          Cualquier duda que tengas, no dudes en escribirme. ¡Estoy para ayudarte!
-                        </p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td style="text-align: center; font-size: 12px; color: #777777; margin-top: 30px; padding-top: 30px; font-family: Arial, sans-serif;">
-                        © 2025 Tomy Medina | Todos los derechos reservados
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </body>
-        </html>
+    <html>
+      <body style="margin: 0; padding: 0; background-color: #000000;" bgcolor="#000000">
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" bgcolor="#000000" style="background-color: #000000; width: 100%;">
+          <tr>
+            <td align="center" bgcolor="#000000" style="background-color: #000000;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="width: 100%; max-width: 600px; background-color: #000000; padding: 30px; border-radius: 10px;" bgcolor="#000000">
+                <tr>
+                  <td align="center" style="padding-bottom: 30px;">
+                    <img src="https://www.tomymedina.com/imgs/logo.png" alt="Logo" style="max-width: 140px;" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h1 style="color: #da0504; text-align: center; font-size: 28px; margin-bottom: 20px; font-family: Arial, sans-serif;">
+                      ¡Muchas gracias por tu compra!
+                    </h1>
+                  </td>
+                </tr>
+                <tr>
+                  <td bgcolor="#1a1a1a" style="background-color: #1a1a1a; border-radius: 8px; padding: 20px; text-align: center;">
+                    <p style="margin: 10px 0; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">
+                      Te agradezco por confiar en mí para acompañarte en tu proceso de entrenamiento.
+                    </p>
+                    <p style="margin: 10px 0; font-size: 16px; color: #ffffff; font-family: Arial, sans-serif;">
+                      Te adjunto el plan <strong>${paymentRecord.title} - ${paymentRecord.category.toUpperCase()}</strong>
+                    </p>
+                    <p style="margin: 10px 0; font-size: 14px; color: #cccccc; font-family: Arial, sans-serif;">
+                      Cualquier duda que tengas, no dudes en escribirme. ¡Estoy para ayudarte!
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: center; font-size: 12px; color: #777777; margin-top: 30px; padding-top: 30px; font-family: Arial, sans-serif;">
+                    © 2025 Tomy Medina | Todos los derechos reservados
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </body>
+    </html>
       `,
         attachments,
       });

@@ -19,14 +19,6 @@ export const Columns: ColumnDef<IColumns>[] = [
     },
   },
   {
-    id: "nombre",
-    header: "Nombre",
-    cell: ({ row }) => {
-      const name = row.original.name || "N/A";
-      return name;
-    },
-  },
-  {
     accessorKey: "email",
     header: "Email",
     cell: ({ row }) => {

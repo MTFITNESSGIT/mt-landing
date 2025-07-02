@@ -16,7 +16,18 @@ export default function RootLayout({
   return (
     <Providers>
       {children}
-      <Toaster position="top-right" />
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          classNames: {
+            toast: "bg-white text-black shadow-sm",
+            title: "text-black font-semibold",
+            description: "text-gray-700",
+            actionButton: "bg-black text-white",
+            cancelButton: "bg-gray-100 text-black",
+          },
+        }}
+      />
     </Providers>
   );
 }
