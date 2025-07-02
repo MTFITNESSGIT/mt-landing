@@ -5,7 +5,7 @@ import Advice from "./Advice";
 
 const AdvicePage = () => {
   return (
-    <section className="flex w-full flex-col items-center justify-start mt-14 px-4 md:px-10 lg:px-20 max-w-[1200px] mx-auto">
+    <section className="flex w-full flex-col items-center justify-start mt-14 px-4 md:px-10 lg:px-20 max-w-[1200px] mx-auto py-4">
       <div className="flex flex-col justify-center items-center gap-4">
         <div className="w-full flex justify-center">
           <div className="w-10 h-[3px] bg-red"></div>

@@ -15,7 +15,7 @@ export const MercadoPagoLink = async (plan: TPlan) => {
       items: [
         {
           id: plan.title,
-          unit_price: 10,
+          unit_price: plan.price as number,
           quantity: 1,
           title: plan.title + " - " + plan.category?.toUpperCase(),
         },

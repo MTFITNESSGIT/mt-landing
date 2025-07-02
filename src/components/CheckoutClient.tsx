@@ -20,7 +20,6 @@ const CheckoutClient: React.FC = () => {
       p.category.toLowerCase() === category?.toLowerCase()
   );
   const { title, background, includes } = selectedPlan || {};
-
   const handlePay = async () => {
     if (!selectedPlan) return;
     setIsLoading(true);
@@ -34,7 +33,7 @@ const CheckoutClient: React.FC = () => {
   };
 
   if (!selectedPlan) {
-    return <p>Loading plan details...</p>; // Fallback content while waiting for selectedPlan
+    return <p>Cargando..</p>;
   }
 
   return (

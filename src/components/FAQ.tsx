@@ -9,7 +9,7 @@ import React from "react";
 
 const FAQ = () => {
   return (
-    <section className=" bg-black w-full flex  flex-col items-center justify-start mt-14 px-4 md:px-10 lg:px-20  max-w-[1200px] mx-auto">
+    <section className=" bg-black w-full flex  flex-col items-center justify-start mt-14 px-4 md:px-10 lg:px-20  max-w-[1200px] mx-auto py-4">
       <div className="h-[40px] w-full flex justify-center items-center px-4 md:px-10 lg:px-20 max-w-[1350px] mx-auto">
         <div className="divider"></div>
       </div>

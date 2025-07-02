@@ -11,7 +11,7 @@ const DividerReady = ({ ready }: DividerReady) => {
     <section
       className={`w-full h-full max-w-[1045px]  py-5 ${
         !ready ? "md:h-[200px]" : "md:h-[340px]"
-      }  bg-gradient-to-r from-[#650C0C] to-red flex flex-col items-center justify-center gap-5 md:gap-10 my-10`}
+      }  bg-gradient-to-r from-[#650C0C] to-red flex flex-col items-center justify-center gap-5 md:gap-10 my-10 py-4`}
     >
       {ready && (
         <div className="flex flex-col justify-center items-center">

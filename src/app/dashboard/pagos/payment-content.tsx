@@ -34,7 +34,7 @@ function PaymentsContent() {
   };
 
   return (
-    <div className="h-full w-full bg-white">
+    <div className="h-full w-full bg-white rounded-xl">
       {/* Navigation Header */}
       <nav className=" sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
