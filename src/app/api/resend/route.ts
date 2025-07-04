@@ -1,61 +1,64 @@
-import PaymentModel from "../../../models/Payment";
-import dbConnect from "../../../utils/mongodb";
+import dbConnect from "@/utils/mongodb";
+import PaymentModel from "@/models/Payment";
 import { Resend } from "resend";
 import { getMimeType } from "@/utils/getMimeType";
 import { bucket } from "@/utils/firebaseBucket";
-import { NextResponse } from "next/server";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export async function POST(request: Request) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Method Not Allowed" });
+  }
+
   await dbConnect();
 
-  const body = await request.json();
-  const response = NextResponse.json(
-    { message: "Email process started" },
-    { status: 200 }
-  );
+  const { paymentId } = req.body;
 
-  // Background task
-  setImmediate(async () => {
-    try {
-      const resend = new Resend(process.env.RESEND_API_KEY);
+  // Send response early for Sonner toast
+  res.writeHead(200, { "Content-Type": "application/json" });
+  res.end(JSON.stringify({ message: "Email process started" }));
 
-      const paymentRecord = await PaymentModel.findOne({
-        paymentId: body.paymentId,
-      });
+  // Continue logic after response
+  try {
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
-      if (!paymentRecord) {
-        console.error("❌ Payment not found in DB.");
-        return;
-      }
+    const paymentRecord = await PaymentModel.findOne({ paymentId });
 
-      const firebaseFolder = paymentRecord.firebase_folder || "";
+    if (!paymentRecord) {
+      console.error("❌ Payment not found");
+      return;
+    }
 
-      const [files] = await bucket.getFiles({ prefix: firebaseFolder });
-      const pdfFiles = files.filter((file) => !file.name.endsWith("/"));
+    const firebaseFolder = paymentRecord.firebase_folder || "";
+    const [files] = await bucket.getFiles({ prefix: firebaseFolder });
+    const pdfFiles = files.filter((file) => !file.name.endsWith("/"));
 
-      const attachments = await Promise.all(
-        pdfFiles.map(async (file) => {
-          const [buffer] = await file.download();
-          const filename = file.name.split("/").pop() || "archivo.pdf";
-          return {
-            filename,
-            content: buffer.toString("base64"),
-            contentType: getMimeType(filename),
-            encoding: "base64",
-          };
-        })
-      );
+    const attachments = await Promise.all(
+      pdfFiles.map(async (file) => {
+        const [buffer] = await file.download();
+        const filename = file.name.split("/").pop() || "archivo.pdf";
+        return {
+          filename,
+          content: buffer.toString("base64"),
+          contentType: getMimeType(filename),
+          encoding: "base64",
+        };
+      })
+    );
 
-      if (attachments.length === 0) {
-        console.error("❌ No files found for attachments. Email not sent.");
-        return;
-      }
+    if (attachments.length === 0) {
+      console.error("❌ No files found for attachments.");
+      return;
+    }
 
-      await resend.emails.send({
-        from: "soporte@tomymedina.com",
-        to: paymentRecord.email,
-        subject: "Renvio de plan",
-        html: `
+    await resend.emails.send({
+      from: "soporte@tomymedina.com",
+      to: paymentRecord.email,
+      subject: "Renvio de plan",
+      html: `
     <html>
       <body style="margin: 0; padding: 0; background-color: #000000;" bgcolor="#000000">
         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" bgcolor="#000000" style="background-color: #000000; width: 100%;">
@@ -99,15 +102,11 @@ export async function POST(request: Request) {
       </body>
     </html>
       `,
-        attachments,
-      });
+      attachments,
+    });
 
-      console.log("📤 Email sent successfully.");
-    } catch (error) {
-      console.error("❌ Background task failed:", error);
-    }
-  });
-
-  // Respond immediately
-  return response;
+    console.log("✅ Email sent");
+  } catch (error) {
+    console.error("❌ Email sending failed:", error);
+  }
 }
