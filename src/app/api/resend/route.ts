@@ -1,64 +1,61 @@
-import dbConnect from "@/utils/mongodb";
 import PaymentModel from "@/models/Payment";
+import dbConnect from "@/utils/mongodb";
 import { Resend } from "resend";
 import { getMimeType } from "@/utils/getMimeType";
 import { bucket } from "@/utils/firebaseBucket";
-import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method Not Allowed" });
-  }
-
+export async function POST(request: Request) {
   await dbConnect();
+  const body = await request.json();
 
-  const { paymentId } = req.body;
-
-  // Send response early for Sonner toast
-  res.writeHead(200, { "Content-Type": "application/json" });
-  res.end(JSON.stringify({ message: "Email process started" }));
-
-  // Continue logic after response
-  try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
-
-    const paymentRecord = await PaymentModel.findOne({ paymentId });
-
-    if (!paymentRecord) {
-      console.error("❌ Payment not found");
-      return;
+  const response = new Response(
+    JSON.stringify({ message: "Email process started" }),
+    {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
     }
+  );
 
-    const firebaseFolder = paymentRecord.firebase_folder || "";
-    const [files] = await bucket.getFiles({ prefix: firebaseFolder });
-    const pdfFiles = files.filter((file) => !file.name.endsWith("/"));
+  (async () => {
+    try {
+      const resend = new Resend(process.env.RESEND_API_KEY);
 
-    const attachments = await Promise.all(
-      pdfFiles.map(async (file) => {
-        const [buffer] = await file.download();
-        const filename = file.name.split("/").pop() || "archivo.pdf";
-        return {
-          filename,
-          content: buffer.toString("base64"),
-          contentType: getMimeType(filename),
-          encoding: "base64",
-        };
-      })
-    );
+      const paymentRecord = await PaymentModel.findOne({
+        paymentId: body.paymentId,
+      });
 
-    if (attachments.length === 0) {
-      console.error("❌ No files found for attachments.");
-      return;
-    }
+      if (!paymentRecord) {
+        console.error("❌ Payment not found");
+        return;
+      }
 
-    await resend.emails.send({
-      from: "soporte@tomymedina.com",
-      to: paymentRecord.email,
-      subject: "Renvio de plan",
-      html: `
+      const firebaseFolder = paymentRecord.firebase_folder || "";
+      const [files] = await bucket.getFiles({ prefix: firebaseFolder });
+      const pdfFiles = files.filter((file) => !file.name.endsWith("/"));
+
+      const attachments = await Promise.all(
+        pdfFiles.map(async (file) => {
+          const [buffer] = await file.download();
+          const filename = file.name.split("/").pop() || "archivo.pdf";
+          return {
+            filename,
+            content: buffer.toString("base64"),
+            contentType: getMimeType(filename),
+            encoding: "base64",
+          };
+        })
+      );
+
+      if (attachments.length === 0) {
+        console.error("❌ No files found for attachments.");
+        return;
+      }
+
+      await resend.emails.send({
+        from: "soporte@tomymedina.com",
+        to: paymentRecord.email,
+        subject: "Renvio de plan",
+        html: `
     <html>
       <body style="margin: 0; padding: 0; background-color: #000000;" bgcolor="#000000">
         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" bgcolor="#000000" style="background-color: #000000; width: 100%;">
@@ -102,11 +99,14 @@ export default async function handler(
       </body>
     </html>
       `,
-      attachments,
-    });
+        attachments,
+      });
 
-    console.log("✅ Email sent");
-  } catch (error) {
-    console.error("❌ Email sending failed:", error);
-  }
+      console.log("✅ Email sent");
+    } catch (err) {
+      console.error("❌ Email send failed:", err);
+    }
+  })();
+
+  return response;
 }
