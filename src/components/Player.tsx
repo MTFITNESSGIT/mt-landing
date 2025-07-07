@@ -18,6 +18,7 @@ const Player: React.FC<VideoPlayerProps> = ({ src }) => {
       )}
 
       <video
+        preload="auto"
         src={src}
         className={`md:rounded-[30px] transition-opacity duration-300 ${
           isLoaded ? "opacity-100" : "opacity-0 absolute max-w-[300px]"
