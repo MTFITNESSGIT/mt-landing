@@ -19,8 +19,8 @@ const Player: React.FC<VideoPlayerProps> = ({ src }) => {
 
       <video
         src={src}
-        className={`rounded-[30px] w-full h-auto transition-opacity duration-300 ${
-          isLoaded ? "opacity-100" : "opacity-0 absolute"
+        className={`rounded-[30px] transition-opacity duration-300 ${
+          isLoaded ? "opacity-100" : "opacity-0 absolute max-w-[300px]"
         }`}
         onCanPlayThrough={() => setIsLoaded(true)}
         autoPlay
