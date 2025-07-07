@@ -21,7 +21,6 @@ export const metadata: Metadata = {
   creator: "Tomás Medina",
   metadataBase: new URL("https://tomymedina.com"),
   themeColor: "#000000",
-  viewport: "width=device-width, initial-scale=1",
   openGraph: {
     title: "Tomás Medina | Entrenador Personal Online",
     description:
@@ -49,6 +48,8 @@ export const metadata: Metadata = {
     images: ["https://tomymedina.com/twitter.png"],
   },
 };
+
+export const viewport = "width=device-width, initial-scale=1";
 
 import { Oswald } from "next/font/google";
 import { Providers } from "./providers";
