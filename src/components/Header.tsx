@@ -11,7 +11,7 @@ const Header = () => {
             src="/imgs/logo.webp"
             width={1000}
             height={1000}
-            className="w-full h-full max-w-[200px]"
+            className="w-full h-full max-w-[130px] md:max-w-[200px]"
             alt="logo"
           />
         </Link>
