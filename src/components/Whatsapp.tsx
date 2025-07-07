@@ -7,10 +7,10 @@ const Whatsapp = () => {
     window.open("https://chat.whatsapp.com/GkPhndvtlVz9OYAXyxCDxe", "_blank");
   };
   return (
-    <div className="relative  w-full h-full">
+    <div className="relative w-full h-full">
       <div
         onClick={handleWhatsAppClick}
-        className="bottom-5 right-5 fixed cursor-pointer"
+        className="bottom-2 right-2 fixed cursor-pointer"
       >
         <Image
           src="/imgs/whatsapp.webp"
