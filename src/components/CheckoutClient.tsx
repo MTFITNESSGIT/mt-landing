@@ -40,10 +40,10 @@ const CheckoutClient: React.FC = () => {
     <section className="bg-black w-full flex flex-col items-center justify-center gap-5 md:gap-0 md:justify-between px-4 md:px-10 lg:px-20 max-w-[1350px] mx-auto">
       <div className="p-6 w-full bg-white rounded-2xl flex flex-col items-center justify-center gap-10">
         <div className="flex flex-col justify-center items-center ">
-          <h2 className="text-black font-bold text-2xl text-center">
+          <h2 className="text-black font-bold text-xl md:text-2xl text-center">
             Estas por suscribirte al plan
           </h2>
-          <h3 className="text-red font-bold text-3xl text-center uppercase">
+          <h3 className="text-red font-bold text-xl md:text-3xl text-center uppercase">
             {title} nivel {category}
           </h3>
         </div>
@@ -54,7 +54,9 @@ const CheckoutClient: React.FC = () => {
           />
           <div className="text-black mt-2">
             <div className="w-full h-full">
-              <h4 className="text-lg font-bold my-4">¿Que incluye?</h4>
+              <h4 className="text-lg font-bold my-4 text-center lg:text-left">
+                ¿Que incluye?
+              </h4>
               {includes &&
                 includes.map((include, i) => (
                   <div
@@ -62,11 +64,11 @@ const CheckoutClient: React.FC = () => {
                     key={i}
                   >
                     {include.approved ? (
-                      <p className="text-lg">✅</p>
+                      <p className="text-base md:text-lg">✅</p>
                     ) : (
-                      <p className="text-lg">❌</p>
+                      <p className="text-base md:text-lg">❌</p>
                     )}
-                    <p className="text-base">{include.text}</p>
+                    <p className="text-sm md:text-base">{include.text}</p>
                   </div>
                 ))}
             </div>

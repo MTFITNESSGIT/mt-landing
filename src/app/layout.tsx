@@ -65,6 +65,7 @@ export default function RootLayout({
   return (
     <html lang="es" className="!scroll-smooth">
       <head>
+        <link rel="preload" as="video" href="/video.mp4" type="video/mp4" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link
@@ -79,6 +80,7 @@ export default function RootLayout({
           sizes="16x16"
           href="/favicon-16x16.png"
         />
+
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-title" content="Tomás Medina" />
