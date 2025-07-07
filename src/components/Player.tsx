@@ -11,7 +11,7 @@ const Player: React.FC<VideoPlayerProps> = ({ src }) => {
   return (
     <div className="w-full min-w-[320px] max-w-[1030px]">
       {!isLoaded && (
-        <div className="w-full rounded-[30px] min-w-[300px] sm:min-w-[500px] md:min-w-[700px] lg:min-w-[900px] xl:min-w-[1000px] max-w-[1030px] h-[530px] bg-neutral-800 animate-pulse border border-neutral-700 shadow-md" />
+        <div className="w-full rounded-[30px] min-w-[200px] sm:min-w-[500px] md:min-w-[700px] lg:min-w-[900px] xl:min-w-[1000px] max-w-[1030px] h-[530px] bg-neutral-800 animate-pulse border border-neutral-700 shadow-md" />
       )}
 
       <video
