@@ -28,7 +28,8 @@ const CarouselExperience = () => {
                 alt={experience}
                 width="500"
                 height="500"
-                className="w-full h-full "
+                className="w-full h-full"
+                priority
               />
             </CarouselItem>
           ))}
