@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 
 import { Oswald } from "next/font/google";
 import { Providers } from "./providers";
+import Script from "next/script";
 
 const oswald = Oswald({ subsets: ["latin"] });
 
@@ -24,6 +25,18 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link rel="icon" href="./icon.ico" sizes="any" />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
+    `,
+          }}
+        />
       </head>
       <body
         className={`text-white w-full max-w-[1350px] mx-auto ${oswald.className}`}

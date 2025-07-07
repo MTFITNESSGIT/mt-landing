@@ -20,16 +20,6 @@ export async function POST(request: Request) {
   try {
     const payment = await new Payment(mercadopago).get({ id: body.data.id });
 
-    if (payment.status !== "approved") {
-      console.log("⛔ Payment is not approved, exiting.");
-      return NextResponse.json(
-        {
-          message: "⛔ Payment is not approved, exiting.",
-        },
-        { status: 400 }
-      );
-    }
-
     const existingPayment = await PaymentModel.findOne({
       paymentId: payment.id,
     });
@@ -59,6 +49,16 @@ export async function POST(request: Request) {
       console.log("💾 Payment saved to database.");
     } else {
       console.log("ℹ️ Payment already recorded.");
+    }
+
+    if (payment.status !== "approved") {
+      console.log("⛔ Payment is not approved, exiting.");
+      return NextResponse.json(
+        {
+          message: "⛔ Payment is not approved, exiting.",
+        },
+        { status: 400 }
+      );
     }
 
     const firebaseFolder = payment.metadata.firebase_folder || "";
