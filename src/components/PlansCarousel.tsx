@@ -19,6 +19,8 @@ const PlansCarousel = () => {
         plugins={[
           Autoplay({
             delay: 3000,
+            stopOnInteraction: false,
+            stopOnMouseEnter: true,
           }),
         ]}
       >
