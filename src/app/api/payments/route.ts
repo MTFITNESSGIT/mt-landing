@@ -14,8 +14,10 @@ export async function GET(req: Request) {
 
     const [total, users] = await Promise.all([
       PaymentModel.countDocuments(),
-      PaymentModel.find().skip(skip).limit(limit),
+      PaymentModel.find().sort({ date_created: -1 }).skip(skip).limit(limit),
     ]);
+
+    console.log(users, "users");
 
     return NextResponse.json({
       data: users,

@@ -99,7 +99,7 @@ function PaymentsContent() {
                     className={
                       page <= 1
                         ? "pointer-events-none opacity-50"
-                        : "cursor-pointer hover:bg-blue-50"
+                        : "cursor-pointer text-black"
                     }
                   />
                 </PaginationItem>
@@ -121,7 +121,7 @@ function PaymentsContent() {
                       <PaginationLink
                         onClick={() => setPage(pageNum)}
                         isActive={page === pageNum}
-                        className="cursor-pointer hover:bg-blue-50"
+                        className="cursor-pointer text-black"
                       >
                         {pageNum}
                       </PaginationLink>
@@ -135,7 +135,7 @@ function PaymentsContent() {
                     className={
                       page >= totalPages
                         ? "pointer-events-none opacity-50"
-                        : "cursor-pointer hover:bg-blue-50"
+                        : "cursor-pointer text-black"
                     }
                   />
                 </PaginationItem>
