@@ -9,13 +9,14 @@ const capitalize = (str?: string) =>
   str ? str.charAt(0).toUpperCase() + str.slice(1) : "";
 
 export const MercadoPagoLink = async (plan: TPlan) => {
-  const firebaseFolder = `${plan?.type === "Muscular" ? "Musculo" : "Grasa"}${capitalize(plan?.category)}`;
+  const firebaseFolder = `${plan?.type === "muscular" ? "Musculo" : "Grasa"}${capitalize(plan?.category)}`;
+
   const preference = await new Preference(mercadopago).create({
     body: {
       items: [
         {
           id: plan.title,
-          unit_price: plan.price as number,
+          unit_price: 10,
           quantity: 1,
           title: plan.title + " - " + plan.category?.toUpperCase(),
         },
