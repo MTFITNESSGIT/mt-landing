@@ -6,7 +6,10 @@ import Paragraph from "./Paragraph";
 
 const ParagraphContainer = () => {
   return (
-    <section className="flex flex-col items-center justify-start my-14 px-4 md:px-10 lg:px-20 max-w-[1350px] mx-auto animate-fade-up py-4">
+    <section
+      id="sobre-tomi"
+      className="flex flex-col items-center justify-start my-14 px-4 md:px-10 lg:px-20 max-w-[1350px] mx-auto animate-fade-up py-4"
+    >
       <div className="h-[40px] w-full flex justify-center items-center px-4 md:px-10 lg:px-20 max-w-[1350px] mx-auto">
         <div className="divider"></div>
       </div>
