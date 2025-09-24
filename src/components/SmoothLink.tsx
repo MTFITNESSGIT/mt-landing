@@ -15,12 +15,17 @@ const ScrollLink = ({ children, ...props }: ScrollLinkProps) => {
     const elem = document.getElementById(targetId);
     elem?.scrollIntoView({
       behavior: "smooth",
-      block: "end",
+      block: "start",
       inline: "nearest",
     });
   };
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    handleScroll(e);
+    if (props.onClick) props.onClick(e);
+  };
   return (
-    <Link {...props} onClick={handleScroll}>
+    <Link {...props} onClick={handleClick}>
       {children}
     </Link>
   );
