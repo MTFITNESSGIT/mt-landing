@@ -1,5 +1,6 @@
 import AdvicePage from "@/components/AdvicePage";
 import Certifications from "@/components/Certifications";
+import { CyberMondayPopup } from "@/components/CyberMonday";
 import DividerReady from "@/components/DividerReady";
 import Experience from "@/components/Experience";
 import FAQ from "@/components/FAQ";
@@ -11,6 +12,7 @@ import Whatsapp from "@/components/Whatsapp";
 export default function Home() {
   return (
     <>
+      <CyberMondayPopup />
       <Principal />
       <Plans />
       <AdvicePage />

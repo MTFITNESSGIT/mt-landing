@@ -16,6 +16,7 @@ export interface TParagraph {
 export interface TPlan {
   background: number;
   title: string;
+  oldPrice?: number;
   price?: number;
   quantity?: number;
   level?: string;

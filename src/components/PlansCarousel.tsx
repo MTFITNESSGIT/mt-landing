@@ -37,6 +37,7 @@ const PlansCarousel = () => {
                   category={plan.category}
                   quantity={plan.quantity}
                   price={plan.price}
+                  oldPrice={plan.oldPrice}
                 />
               </CarouselItem>
             );

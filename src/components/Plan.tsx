@@ -2,6 +2,7 @@ import React from "react";
 import { TPlan } from "../types";
 import Link from "next/link";
 import Image from "next/image";
+import { Badge } from "./ui/badge";
 
 const Plan: React.FC<TPlan> = ({
   background,
@@ -9,6 +10,7 @@ const Plan: React.FC<TPlan> = ({
   quantity,
   category,
   price,
+  oldPrice,
 }: TPlan) => {
   const backgroundClasses: Record<number, string> = {
     1: "bg-plan-1",
@@ -39,6 +41,11 @@ const Plan: React.FC<TPlan> = ({
             height={64}
             className="absolute top-4 left-4 w-16 h-16"
           />
+          <div className="flex gap-2 w-full justify-end items-center px-4 py-6">
+            <Badge variant="default" className="bg-red text-white text-2xl">
+              50 % OFF
+            </Badge>
+          </div>
           <div
             className={`absolute w-full mt-2 pb-4 bottom-0 flex flex-col justify-end items-center border border-red bg-black rounded-b-3xl`}
           >
@@ -56,7 +63,10 @@ const Plan: React.FC<TPlan> = ({
         <p className="text-xl md:text-base font-semibold mt-3 uppercase">
           RUTINA {title} {category}
         </p>
-        <p className="text-2xl font-extrabold m-0">
+        <p className="text-sm white text-white line-through opacity-70">
+          $ {oldPrice && oldPrice.toLocaleString("es-AR")}
+        </p>
+        <p className="text-3xl font-extrabold m-0">
           $ {price && price.toLocaleString("es-AR")}
         </p>
       </div>
