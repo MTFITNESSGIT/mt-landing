@@ -5,9 +5,11 @@ export const advices: TProgram[] = [
     title: "ASESORÍA BÁSICA",
     premium: false,
     customized: false,
+    discount: "20",
     muscle: {
       title: "GANAR MASA MUSCULAR",
-      newPrice: "39.990",
+      oldPrice: "55.000",
+      newPrice: "43.950",
       values: [
         {
           approved: true,
@@ -99,7 +101,8 @@ export const advices: TProgram[] = [
     },
     fat: {
       title: "PERDER TEJIDO ADIPOSO",
-      newPrice: "39.990",
+      oldPrice: "55.000",
+      newPrice: "43.950",
       values: [
         {
           approved: true,
@@ -195,10 +198,10 @@ export const advices: TProgram[] = [
     title: "ASESORÍA PERSONALIZADA💪🏼",
     premium: false,
     customized: true,
-    discount: "20",
+    discount: "30",
     muscle: {
-      newPrice: "79.990",
-      oldPrice: "100.000",
+      oldPrice: "122.700",
+      newPrice: "85.890",
       title: "GANAR MASA MUSCULAR",
       values: [
         {
@@ -291,8 +294,8 @@ export const advices: TProgram[] = [
     },
     fat: {
       title: "PERDER TEJIDO ADIPOSO",
-      newPrice: "79.990",
-      oldPrice: "100.000",
+      oldPrice: "122.700",
+      newPrice: "85.890",
       values: [
         {
           approved: true,
@@ -387,10 +390,10 @@ export const advices: TProgram[] = [
     title: "ASESORÍA PREMIUM💎",
     premium: true,
     customized: false,
-    discount: "16",
+    discount: "25",
     muscle: {
-      newPrice: "150",
-      oldPrice: "180",
+      oldPrice: "300.000",
+      newPrice: "224.900",
       title: "GANAR MASA MUSCULAR",
       values: [
         {
@@ -483,8 +486,8 @@ export const advices: TProgram[] = [
     },
     fat: {
       title: "PERDER TEJIDO ADIPOSO",
-      newPrice: "150",
-      oldPrice: "180",
+      oldPrice: "300.000",
+      newPrice: "224.900",
       values: [
         {
           approved: true,

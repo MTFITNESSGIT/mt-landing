@@ -25,17 +25,23 @@ const Advice = ({
             premium
               ? "bg-gradient-to-b from-[#516FFF] to-[#F563BE]"
               : customized
-              ? "bg-gradient-to-b from-[#d8b651] to-[#ce970d]"
-              : "bg-gradient-to-b from-[#999898] to-[#4F4F4F]"
+                ? "bg-gradient-to-b from-[#d8b651] to-[#ce970d]"
+                : "bg-gradient-to-b from-[#999898] to-[#4F4F4F]"
           } rounded-3xl flex flex-col justify-evenly items-center gap-2`}
         >
           <div className="text-center">
+            <div className="mb-3 bg-gradient-to-r from-[#650C0C] to-red p-3 rounded-lg">
+              <h3 className="text-2xl font-extrabold">¡2X1!</h3>
+              <p className="text-base text-bold">
+                Con la compra de cualquier asesoría, llévate una más de regalo
+              </p>
+            </div>
             <h3 className="text-2xl lg:text-3xl font-bold">{muscle.title}</h3>
             <div className="flex flex-col">
               {discount && (
                 <div className="flex gap-2 w-full justify-center items-center my-1">
                   <p className="text-base white text-white line-through opacity-70">
-                    $ {muscle.oldPrice} {premium && "USD"} mensuales
+                    $ {muscle.oldPrice} mensuales
                   </p>
                   <Badge
                     variant="default"
@@ -46,7 +52,7 @@ const Advice = ({
                 </div>
               )}
               <h3 className="text-2xl font-bold">
-                $ {muscle.newPrice} {premium && "USD"} mensuales
+                $ {muscle.newPrice} mensuales
               </h3>
             </div>
 
@@ -94,11 +100,17 @@ const Advice = ({
             premium
               ? "bg-gradient-to-b from-[#516FFF] to-[#F563BE]"
               : customized
-              ? "bg-gradient-to-b from-[#d8b651] to-[#ce970d]"
-              : "bg-gradient-to-b from-[#999898] to-[#4F4F4F]"
+                ? "bg-gradient-to-b from-[#d8b651] to-[#ce970d]"
+                : "bg-gradient-to-b from-[#999898] to-[#4F4F4F]"
           } rounded-3xl flex flex-col justify-evenly items-center gap-2`}
         >
           <div className="text-center">
+            <div className="mb-3 bg-gradient-to-r from-[#650C0C] to-red p-3 rounded-lg">
+              <h3 className="text-2xl font-extrabold">¡2X1!</h3>
+              <p className="text-base text-bold">
+                Con la compra de cualquier asesoría, llévate una más de regalo
+              </p>
+            </div>
             <h3 className="text-2xl lg:text-3xl font-bold">{fat.title}</h3>
             <div className="flex flex-col">
               {discount && (
