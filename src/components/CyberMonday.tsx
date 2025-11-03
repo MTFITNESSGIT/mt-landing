@@ -54,7 +54,7 @@ export function CyberMondayPopup() {
         y: Math.random() * canvas.height - canvas.height,
         vx: (Math.random() - 0.5) * 8,
         vy: Math.random() * 8 + 4,
-        life: 2,
+        life: 3,
         color: colors[Math.floor(Math.random() * colors.length)],
         size: Math.random() * 6 + 2,
       });

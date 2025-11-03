@@ -29,8 +29,8 @@ const Advice = ({
                 : "bg-gradient-to-b from-[#999898] to-[#4F4F4F]"
           } rounded-3xl flex flex-col justify-evenly items-center gap-2`}
         >
-          <div className="text-center">
-            <div className="mb-3 bg-gradient-to-r from-[#650C0C] to-red p-3 rounded-lg">
+          <div className="text-center w-full">
+            <div className="mb-3 bg-gradient-to-r from-[#650C0C] to-red p-3 rounded-xl w-full">
               <h3 className="text-2xl font-extrabold">¡2X1!</h3>
               <p className="text-base text-bold">
                 Con la compra de cualquier asesoría, llévate una más de regalo
@@ -104,8 +104,8 @@ const Advice = ({
                 : "bg-gradient-to-b from-[#999898] to-[#4F4F4F]"
           } rounded-3xl flex flex-col justify-evenly items-center gap-2`}
         >
-          <div className="text-center">
-            <div className="mb-3 bg-gradient-to-r from-[#650C0C] to-red p-3 rounded-lg">
+          <div className="text-center w-full">
+            <div className="mb-3 bg-gradient-to-r from-[#650C0C] to-red p-3 rounded-xl w-full">
               <h3 className="text-2xl font-extrabold">¡2X1!</h3>
               <p className="text-base text-bold">
                 Con la compra de cualquier asesoría, llévate una más de regalo
