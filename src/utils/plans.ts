@@ -6,7 +6,7 @@ export const plans = [
     title: "GANAR MASA MUSCULAR",
     type: "muscular",
     category: "principiante",
-    oldPrice: 29990,
+    oldPrice: 49990,
     price: 24990,
     includes: [
       {
@@ -47,7 +47,7 @@ export const plans = [
     type: "muscular",
     category: "intermedio",
     quantity: 4,
-    oldPrice: 29990,
+    oldPrice: 49990,
     price: 24990,
     includes: [
       {
@@ -87,7 +87,7 @@ export const plans = [
     title: "GANAR MASA MUSCULAR",
     type: "muscular",
     category: "avanzado",
-    oldPrice: 29990,
+    oldPrice: 49990,
     price: 24990,
 
     includes: [
@@ -128,7 +128,7 @@ export const plans = [
     title: "QUEMAR GRASA",
     type: "grasa",
     category: "principiante",
-    oldPrice: 29990,
+    oldPrice: 49990,
     price: 24990,
     includes: [
       {
@@ -168,7 +168,7 @@ export const plans = [
     title: "QUEMAR GRASA",
     type: "grasa",
     category: "intermedio",
-    oldPrice: 29990,
+    oldPrice: 49990,
     price: 24990,
     includes: [
       {
@@ -208,7 +208,7 @@ export const plans = [
     title: "QUEMAR GRASA",
     type: "quemar",
     category: "avanzado",
-    oldPrice: 29990,
+    oldPrice: 49990,
     price: 24990,
     includes: [
       {
