@@ -85,12 +85,15 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-title" content="Tomás Medina" />
         <meta name="format-detection" content="telephone=no" />
+
         <link
           rel="preload"
           as="image"
           href="https://tomymedina.com/twitter.png"
           type="image/png"
         />
+
+        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-4F1R7JFJTV"
           strategy="afterInteractive"
@@ -107,7 +110,28 @@ export default function RootLayout({
             `,
           }}
         />
+
+        {/* Meta Pixel (versión simple) */}
+        <Script
+          id="meta-pixel"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+              n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '874740785116877');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
       </head>
+
       <body
         className={`text-white w-full max-w-[1350px] mx-auto ${oswald.className}`}
       >
